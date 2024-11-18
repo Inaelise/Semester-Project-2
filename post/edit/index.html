@@ -62,7 +62,42 @@
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <form name="editListing">
+        <div>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div>
+          <label for="tags">Tags</label>
+          <input
+            type="text"
+            id="tags"
+            name="tags"
+            placeholder="separate with comma"
+          />
+        </div>
+        <div>
+          <label for="image">Image url</label>
+          <input
+            type="url"
+            id="image"
+            name="image"
+            placeholder="https://exampleurl.com"
+            pattern="https://.*"
+            required
+          />
+          <button title="Click to add more image urls">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <button title="Click to update listing">Update</button>
+      </form>
+    </main>
 
     <footer>
       <p>Copyright © 2024 Swift Auction</p>
