@@ -63,13 +63,21 @@
     </header>
 
     <main>
-      <form name="makeBid">
-        <div>
-          <i class="fa-solid fa-coins"></i>
-          <input id="bid" name="bid" />
-        </div>
-        <button title="Click to place bid">Place bid</button>
-      </form>
+      <h1>Listings</h1>
+      <div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="search"
+          id="search"
+          name="search"
+          placeholder="Search for items..."
+          title="Type to search"
+          aria-label="search"
+        />
+        <a href="#">Create listing</a>
+      </div>
+      <div id="list-container"></div>
+      <div id="pagination"></div>
     </main>
 
     <footer>
