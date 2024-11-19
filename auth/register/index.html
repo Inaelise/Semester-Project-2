@@ -63,43 +63,50 @@
     </header>
 
     <main>
-      <form name="register">
-        <div>
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="username"
-            maxlength="20"
-            pattern="^[\w]+$"
-            required
-          />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@stud.noroff.no"
-            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-            required
-          />
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="*********"
-            minlength="8"
-            required
-          />
-        </div>
-        <button title="Click to register account">Register</button>
-      </form>
+      <div>
+        <h1>Register</h1>
+        <form name="register">
+          <div>
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="username"
+              maxlength="20"
+              pattern="^[\w]+$"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@stud.noroff.no"
+              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="*********"
+              minlength="8"
+              required
+            />
+          </div>
+          <button title="Click to register account">Register</button>
+        </form>
+      </div>
+      <div>
+        <p>Already have an account?</p>
+        <a href="#" title="Go to login">Log in here</a>
+      </div>
     </main>
 
     <footer>
