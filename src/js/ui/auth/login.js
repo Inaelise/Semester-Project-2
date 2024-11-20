@@ -11,7 +11,7 @@ export async function onLogin(e) {
     await login(data);
     // Temporary alert
     alert("You're logged in");
-    /* window.location.href = "/"; */
+    window.location.href = "/";
   } catch (error) {
     // Temporary error alert
     alert(error);
