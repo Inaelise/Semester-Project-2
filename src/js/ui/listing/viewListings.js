@@ -1,4 +1,5 @@
 import { getListings } from "../../api/listing/read";
+import { createCountdown } from "../../utilities/countdown";
 
 export async function viewListings() {
   try {
@@ -28,6 +29,12 @@ export async function viewListings() {
         img.alt = item.media.alt || "Post image";
       }
 
+      const expireDiv = document.createElement("div");
+      const expireText = document.createElement("p");
+      expireText.textContent = "Expires";
+      expireDiv.append(expireText);
+      createCountdown(item.endsAt, expireDiv);
+
       const bidDiv = document.createElement("div");
       const bidText = document.createElement("p");
       bidText.textContent = "Highest bid";
@@ -38,7 +45,7 @@ export async function viewListings() {
           : 0;
       bidDiv.append(bidText, bid);
 
-      itemContainer.append(img, title, bidDiv);
+      itemContainer.append(img, title, expireDiv, bidDiv);
       link.append(itemContainer);
 
       listItem.append(link);
