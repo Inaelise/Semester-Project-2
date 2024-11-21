@@ -43,7 +43,7 @@
           <li><a href="/" title="Go to home">Home</a></li>
           <li><a href="/profile/" title="Go to profile">Profile</a></li>
           <li>
-            <a href="/post/create/" title="Go to create listing"
+            <a href="/listing/create/" title="Go to create listing"
               ><i class="fa-solid fa-circle-plus"></i
             ></a>
           </li>
@@ -64,13 +64,20 @@
 
     <main>
       <h1>Listing item</h1>
-      <form name="makeBid">
-        <div>
-          <i class="fa-solid fa-coins"></i>
-          <input id="bid" name="bid" />
+      <div id="listing-container">
+        <div id="flex-container">
+          <div id="image-gallery"></div>
+          <div id="listing-info">
+            <form name="makeBid">
+              <div>
+                <i class="fa-solid fa-coins"></i>
+                <input id="bid" name="bid" />
+              </div>
+              <button title="Click to place bid">Place bid</button>
+            </form>
+          </div>
         </div>
-        <button title="Click to place bid">Place bid</button>
-      </form>
+      </div>
     </main>
 
     <footer>

@@ -1,4 +1,4 @@
-import { onCreate } from "../../ui/post/create";
+import { onCreate } from "../../ui/listing/create";
 import { authGuard } from "../../utilities/authGuard";
 
 authGuard();
