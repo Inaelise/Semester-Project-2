@@ -28,7 +28,17 @@ export async function viewListings() {
         img.alt = item.media.alt || "Post image";
       }
 
-      itemContainer.append(img, title);
+      const bidDiv = document.createElement("div");
+      const bidText = document.createElement("p");
+      bidText.textContent = "Highest bid";
+      const bid = document.createElement("p");
+      bid.textContent =
+        item.bids.length > 0
+          ? Math.max(...item.bids.map((bid) => bid.amount))
+          : 0;
+      bidDiv.append(bidText, bid);
+
+      itemContainer.append(img, title, bidDiv);
       link.append(itemContainer);
 
       listItem.append(link);
