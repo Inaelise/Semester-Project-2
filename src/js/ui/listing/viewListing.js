@@ -15,17 +15,51 @@ export async function viewListing() {
     listingContainer.insertBefore(title, listingContainer.firstChild);
 
     const gallery = document.getElementById("image-gallery");
-    const img = document.createElement("img");
+    const imgContainer = document.createElement("div");
+    const mainImg = document.createElement("img");
     // Make the actual gallery
     if (listing.media.length > 0) {
-      const selectedImg = listing.media[0];
-      img.src = selectedImg.url;
-      img.alt = selectedImg.alt || "Post image";
+      const firstImg = listing.media[0];
+      mainImg.src = firstImg.url;
+      mainImg.alt = firstImg.alt || "Post image";
+      imgContainer.append(mainImg);
     } else {
-      img.src = listing.media.url;
-      img.alt = listing.media.alt || "Post image";
+      mainImg.src = "/images/default-img.png";
+      mainImg.src = "Default image";
+      imgContainer.append(mainImg);
     }
-    gallery.append(img);
+    gallery.append(imgContainer);
+
+    const thumbnailsContainer = document.createElement("div");
+
+    if (listing.media.length > 0) {
+      listing.media.forEach((mediaItem, index) => {
+        if (index > 0) {
+          const thumbnail = document.createElement("img");
+          thumbnail.src = mediaItem.url;
+          thumbnail.alt = mediaItem.alt || "Thumbnail image";
+
+          thumbnail.addEventListener("click", () => {
+            if (mainImg.src !== thumbnail.src) {
+              // Swap the main image with the clicked thumbnail
+              const currentMainSrc = mainImg.src;
+              const currentMainAlt = mainImg.alt;
+
+              // Set the clicked thumbnail as the new main image
+              mainImg.src = thumbnail.src;
+              mainImg.alt = thumbnail.alt;
+
+              // Set the previous main image as a thumbnail
+              thumbnail.src = currentMainSrc;
+              thumbnail.alt = currentMainAlt;
+            }
+          });
+          thumbnailsContainer.append(thumbnail);
+        }
+      });
+    }
+
+    gallery.append(thumbnailsContainer);
 
     const listingInfo = document.getElementById("listing-info");
     const form = document.getElementById("make-bid");
