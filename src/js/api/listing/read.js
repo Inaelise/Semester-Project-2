@@ -13,6 +13,7 @@ export async function getListing(id) {
 
   if (response.ok) {
     const { data } = result;
+    console.log(data);
     return data;
   }
   const error = result.errors.map((error) => error.message).join("\r\n");
