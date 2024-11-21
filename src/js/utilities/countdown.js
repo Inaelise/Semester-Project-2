@@ -1,10 +1,8 @@
 export function createCountdown(endTime, endTimeContainer) {
   // Create elements for the countdown timer
   const countdownValue = document.createElement("p");
-  const countdownLabel = document.createElement("p");
-  countdownLabel.textContent = "Ends in";
 
-  endTimeContainer.append(countdownValue, countdownLabel);
+  endTimeContainer.append(countdownValue);
 
   let timerInterval;
 
