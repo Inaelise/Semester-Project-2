@@ -23,7 +23,7 @@ export async function getListing(id) {
 
 export async function getListings(limit = 9, offset = 0) {
   const response = await fetch(
-    `${API_AUCTION_LISTINGS}?limit=${limit}&offset=${offset}`,
+    `${API_AUCTION_LISTINGS}?limit=${limit}&offset=${offset}?_seller=true&_bids=true`,
     {
       headers: headers(),
     }
