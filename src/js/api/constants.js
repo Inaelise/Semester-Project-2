@@ -8,4 +8,4 @@ export const API_AUTH_REGISTER = `${API_BASE}/auth/register`;
 
 export const API_AUCTION_LISTINGS = `${API_BASE}/auction/listings`;
 
-export const API_AUCTION_PROFILES = `${API_BASE}/auction/PROFILES`;
+export const API_AUCTION_PROFILES = `${API_BASE}/auction/profiles`;
