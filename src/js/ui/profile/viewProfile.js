@@ -1,8 +1,11 @@
 import { getProfile } from "../../api/profile/read";
 import { activeUser } from "../../utilities/activeUser";
+import { closeModal, openModal } from "../../utilities/modal";
 
 export async function viewProfile() {
   const user = activeUser();
+  const closeBtn = document.getElementById("close-modal");
+  closeBtn.addEventListener("click", closeModal);
 
   try {
     const profile = await getProfile(user);
@@ -47,6 +50,8 @@ export async function viewProfile() {
 
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit profile";
+    editBtn.id = "edit-btn";
+    editBtn.addEventListener("click", openModal);
 
     profileContainer.append(
       creditsDiv,
