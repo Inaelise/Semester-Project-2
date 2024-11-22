@@ -21,9 +21,9 @@ export async function getListing(id) {
   throw new Error(error);
 }
 
-export async function getListings(limit = 9, offset = 0) {
+export async function getListings(limit = 9, page = 1) {
   const response = await fetch(
-    `${API_AUCTION_LISTINGS}?limit=${limit}&offset=${offset}?_seller=true&_bids=true`,
+    `${API_AUCTION_LISTINGS}?limit=${limit}&page=${page}&_active=true&_seller=true&_bids=true`,
     {
       headers: headers(),
     }
