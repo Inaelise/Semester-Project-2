@@ -10,8 +10,8 @@ export async function onUpdateListing(e) {
   const formData = new FormData(editForm);
   const data = Object.fromEntries(formData.entries());
 
-  data.media = [{ url: data.url, alt: "" }];
-  delete data.url;
+  data.media = [{ url: data.image, alt: "" }];
+  delete data.image;
 
   data.tags = data.tags.split(",").map((tag) => tag.trim());
 

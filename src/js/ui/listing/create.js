@@ -12,7 +12,7 @@ export async function onCreate(e) {
   const endsAt = new Date(`${endDate}T${endTime}:00Z`).toISOString();
   data.endsAt = endsAt;
 
-  /* const media = {
+  /*  const media = {
     url: data.url,
     alt: "",
   };
@@ -20,8 +20,8 @@ export async function onCreate(e) {
   delete data.url;
   data.media = media; */
 
-  data.media = [{ url: data.url, alt: "" }];
-  delete data.url;
+  data.media = [{ url: data.image, alt: "" }];
+  delete data.image;
 
   data.tags = data.tags.split(",").map((tag) => tag.trim());
 
