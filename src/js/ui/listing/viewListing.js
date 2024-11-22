@@ -123,7 +123,7 @@ export async function viewListing() {
         bidAmount.textContent = bid.amount;
 
         const creditIcon = document.createElement("span");
-        creditIcon.innerHTML = "<i class='fa-solid fa-coins'></i>";
+        creditIcon.innerHTML = `<i class="fa-solid fa-coins"></i>`;
 
         bidAmountDiv.append(bidAmount, creditIcon);
 
