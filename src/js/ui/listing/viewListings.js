@@ -1,9 +1,15 @@
 import { getListings } from "../../api/listing/read";
 import { createCountdown } from "../../utilities/countdown";
+import { updatePagination } from "../../utilities/pagination";
 
-export async function viewListings() {
+export async function viewListings(limit = 9, page = 1) {
+  const loader = document.getElementById("loader");
+
   try {
-    const listings = await getListings();
+    //Show loader
+    loader.classList.remove("hidden");
+
+    const listings = await getListings(limit, page);
 
     const ul = document.getElementById("list-container");
     ul.innerHTML = "";
@@ -51,8 +57,13 @@ export async function viewListings() {
       listItem.append(link);
       ul.append(listItem);
     });
+
+    updatePagination(limit, page);
   } catch (error) {
     //Temporary error alert
     alert(error.message);
+  } finally {
+    //Hide loader
+    loader.classList.add("hidden");
   }
 }
