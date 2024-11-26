@@ -1,19 +1,34 @@
 import { getListings } from "../../api/listing/read";
+import { searchListings } from "../../api/listing/search";
 import { createCountdown } from "../../utilities/countdown";
 import { updatePagination } from "../../utilities/pagination";
 
-export async function viewListings(limit = 9, page = 1) {
+export async function viewListings(limit = 9, page = 1, query = "") {
   const loader = document.getElementById("loader");
+  const ul = document.getElementById("list-container");
 
   try {
-    //Show loader
+    // Show loader
     loader.classList.remove("hidden");
 
-    const listings = await getListings(limit, page);
+    let listings;
 
-    const ul = document.getElementById("list-container");
+    if (query) {
+      listings = await searchListings(query, limit, page);
+    } else {
+      listings = await getListings(limit, page);
+    }
+
+    // Clear the current list
     ul.innerHTML = "";
 
+    // If no listings found
+    if (!Array.isArray(listings) || listings.length === 0) {
+      ul.innerHTML = "<p>No listings found.</p>";
+      return;
+    }
+
+    // Render listings
     listings.forEach((item) => {
       const listItem = document.createElement("li");
 
@@ -23,16 +38,16 @@ export async function viewListings(limit = 9, page = 1) {
       const itemContainer = document.createElement("div");
 
       const title = document.createElement("h2");
-      title.textContent = item.title;
+      title.textContent = item.title || "No title available";
 
       const img = document.createElement("img");
-      if (item.media.length > 0) {
+      if (item.media?.length > 0) {
         const selectedImg = item.media[0];
-        img.src = selectedImg.url;
+        img.src = selectedImg.url || "/public/images/default-img.png";
         img.alt = selectedImg.alt || "Post image";
       } else {
-        img.src = item.media.url;
-        img.alt = item.media.alt || "Post image";
+        img.src = "/public/images/default-img.png"; // Default image
+        img.alt = "Post image";
       }
 
       const expireDiv = document.createElement("div");
@@ -46,7 +61,7 @@ export async function viewListings(limit = 9, page = 1) {
       bidText.textContent = "Highest bid";
       const bid = document.createElement("p");
       bid.textContent =
-        item.bids.length > 0
+        item.bids?.length > 0
           ? Math.max(...item.bids.map((bid) => bid.amount))
           : 0;
       bidDiv.append(bidText, bid);
@@ -58,12 +73,12 @@ export async function viewListings(limit = 9, page = 1) {
       ul.append(listItem);
     });
 
-    updatePagination(limit, page);
+    updatePagination(limit, page, query);
   } catch (error) {
-    //Temporary error alert
+    // Temporary error alert
     alert(error.message);
   } finally {
-    //Hide loader
+    // Hide loader
     loader.classList.add("hidden");
   }
 }
