@@ -1,18 +1,25 @@
 import { viewListings } from "../ui/listing/viewListings";
 
-export function updatePagination(limit, page) {
+export function updatePagination(limit, page, query = "") {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
 
-  if (page > 1) {
-    const prevBtn = document.createElement("button");
-    prevBtn.textContent = "Prev";
-    prevBtn.addEventListener("click", () => {
-      viewListings(limit, page - 1);
+  const listingsCount =
+    document.getElementById("list-container").childElementCount;
+
+  const prevBtn = document.createElement("button");
+  prevBtn.textContent = "Prev";
+  prevBtn.addEventListener("click", () => {
+    if (page > 1) {
+      viewListings(limit, page - 1, query);
       window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    pagination.append(prevBtn);
+    }
+  });
+
+  if (page <= 1) {
+    prevBtn.disabled = true;
   }
+  pagination.append(prevBtn);
 
   const pageText = document.createElement("p");
   pageText.textContent = page;
@@ -20,8 +27,14 @@ export function updatePagination(limit, page) {
   const nextBtn = document.createElement("button");
   nextBtn.textContent = "Next";
   nextBtn.addEventListener("click", () => {
-    viewListings(limit, page + 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (listingsCount === limit) {
+      viewListings(limit, page + 1, query);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   });
+
+  if (listingsCount < limit) {
+    nextBtn.disabled = true;
+  }
   pagination.append(page, nextBtn);
 }
