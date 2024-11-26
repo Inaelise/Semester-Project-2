@@ -13,7 +13,6 @@ export async function getListing(id) {
 
   if (response.ok) {
     const { data } = result;
-    console.log(data);
     return data;
   }
   const error = result.errors.map((error) => error.message).join("\r\n");
@@ -33,7 +32,6 @@ export async function getListings(limit = 9, page = 1) {
 
   if (response.ok) {
     const { data } = result;
-    console.log(data);
     return data;
   }
   const error = result.errors.map((error) => error.message).join("\r\n");
