@@ -10,7 +10,7 @@ export async function onRegister(e) {
 
   try {
     await register(data);
-    displayMessage("message", "Registered successfully! Redirecting..");
+    displayMessage("message", "Registered successfully! Redirecting..", true);
     form.reset();
     setTimeout(() => {
       window.location.href("/auth/login/");

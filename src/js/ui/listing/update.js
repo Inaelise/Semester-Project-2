@@ -18,7 +18,11 @@ export async function onUpdateListing(e) {
 
   try {
     await updateListing(listingId, data);
-    displayMessage("message", "Listing updated successfully! Redirecting..");
+    displayMessage(
+      "message",
+      "Listing updated successfully! Redirecting..",
+      true
+    );
     setTimeout(() => {
       window.location.href = `/listing/?id=${listingId}`;
     }, 1300);

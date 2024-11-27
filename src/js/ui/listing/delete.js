@@ -18,7 +18,8 @@ export async function onDelete(e) {
     await deleteListing(listingId);
     displayMessage(
       "message",
-      `Listing with id ${listingId} deleted successfully! Redirecting..`
+      `Listing with id ${listingId} deleted successfully! Redirecting..`,
+      true
     );
     setTimeout(() => {
       window.location.href = "/";

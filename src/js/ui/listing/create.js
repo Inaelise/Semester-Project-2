@@ -20,7 +20,11 @@ export async function onCreate(e) {
 
   try {
     const newListing = await createListing(data);
-    displayMessage("message", "Listing created successfully! Redirecting..");
+    displayMessage(
+      "message",
+      "Listing created successfully! Redirecting..",
+      true
+    );
     setTimeout(() => {
       window.location.href = `/listing/?id=${newListing.id}`;
     }, 1300);
