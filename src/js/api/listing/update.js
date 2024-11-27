@@ -12,8 +12,6 @@ export async function updateListing(id, { title, description, tags, media }) {
 
   if (response.ok) {
     const { data } = result;
-    //Temporary alert
-    alert(`Post with id: ${id} was updated!`);
     return data;
   }
 
