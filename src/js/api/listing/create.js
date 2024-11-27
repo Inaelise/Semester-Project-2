@@ -18,9 +18,6 @@ export async function createListing({
 
   if (response.ok) {
     const { data } = result;
-    //Temporary alert
-    alert("Post created!");
-    console.log(data);
     return data;
   }
   const errorMessage = result.errors.map((error) => error.message).join("\r\n");
