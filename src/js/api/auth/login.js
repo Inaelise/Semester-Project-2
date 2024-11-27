@@ -9,9 +9,9 @@ export async function login({ email, password }) {
     body: JSON.stringify({ email, password }),
   });
 
+  const result = await response.json();
   if (response.ok) {
-    const { data } = await response.json();
-    console.log(data);
+    const { data } = result;
     save("token", data.accessToken);
     save("user", data.name);
     return data;
