@@ -1,4 +1,5 @@
 import { createListing } from "../../api/listing/create";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onCreate(e) {
   e.preventDefault();
@@ -12,14 +13,6 @@ export async function onCreate(e) {
   const endsAt = new Date(`${endDate}T${endTime}:00Z`).toISOString();
   data.endsAt = endsAt;
 
-  /*  const media = {
-    url: data.url,
-    alt: "",
-  };
-
-  delete data.url;
-  data.media = media; */
-
   data.media = [{ url: data.image, alt: "" }];
   delete data.image;
 
@@ -29,7 +22,6 @@ export async function onCreate(e) {
     const newListing = await createListing(data);
     window.location.href = `/listing/?id=${newListing.id}`;
   } catch (error) {
-    //Temporary error alert
-    alert("Error creating post: " + error.message);
+    displayMessage("message", error.message);
   }
 }

@@ -1,4 +1,5 @@
 import { register } from "../../api/auth/register";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onRegister(e) {
   e.preventDefault();
@@ -13,7 +14,6 @@ export async function onRegister(e) {
     alert("Thank you for registering");
     /* window.location.href = "/auth/login/"; */
   } catch (error) {
-    //Temporary error alert
-    alert(error);
+    displayMessage("message", error.message);
   }
 }

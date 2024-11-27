@@ -1,5 +1,6 @@
 import { updateListing } from "../../api/listing/update";
 import { activeListingId } from "../../utilities/activeListingId";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onUpdateListing(e) {
   e.preventDefault();
@@ -19,7 +20,6 @@ export async function onUpdateListing(e) {
     await updateListing(listingId, data);
     window.location.href = `/listing/?id=${listingId}`;
   } catch (error) {
-    //Temporary error alert
-    alert("Error updating listing: " + error.message);
+    displayMessage("message", error.message);
   }
 }

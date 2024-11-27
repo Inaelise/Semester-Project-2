@@ -1,4 +1,5 @@
 import { login } from "../../api/auth/login";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onLogin(e) {
   e.preventDefault();
@@ -9,11 +10,8 @@ export async function onLogin(e) {
 
   try {
     await login(data);
-    // Temporary alert
-    alert("You're logged in");
     window.location.href = "/";
   } catch (error) {
-    // Temporary error alert
-    alert(error);
+    displayMessage("message", error.message);
   }
 }

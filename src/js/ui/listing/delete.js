@@ -1,5 +1,6 @@
 import { deleteListing } from "../../api/listing/delete";
 import { activeListingId } from "../../utilities/activeListingId";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onDelete(e) {
   e.preventDefault();
@@ -19,7 +20,6 @@ export async function onDelete(e) {
     alert(`Listing with id ${listingId} deleted successfully!`);
     window.location.href = "/";
   } catch (error) {
-    //Temporary error alert
-    alert(`Failed to delete listing: ${error.message}`);
+    displayMessage("message", error.message);
   }
 }

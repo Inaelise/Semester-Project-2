@@ -1,5 +1,6 @@
 import { updateProfile } from "../../api/profile/update";
 import { activeUser } from "../../utilities/activeUser";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function onUpdateProfile(e) {
   e.preventDefault();
@@ -16,7 +17,6 @@ export async function onUpdateProfile(e) {
     await updateProfile(user, data);
     window.location.href = "/profile/";
   } catch (error) {
-    //Temporary error alert
-    alert("Error updating profile: " + error.message);
+    displayMessage("message", error.message);
   }
 }
