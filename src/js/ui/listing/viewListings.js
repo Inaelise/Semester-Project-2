@@ -1,6 +1,7 @@
 import { getListings } from "../../api/listing/read";
 import { searchListings } from "../../api/listing/search";
 import { createCountdown } from "../../utilities/countdown";
+import { displayMessage } from "../../utilities/displayMessage";
 import { updatePagination } from "../../utilities/pagination";
 
 export async function viewListings(limit = 9, page = 1, query = "") {
@@ -75,8 +76,7 @@ export async function viewListings(limit = 9, page = 1, query = "") {
 
     updatePagination(limit, page, query);
   } catch (error) {
-    // Temporary error alert
-    alert(error.message);
+    displayMessage("list-container", error.message);
   } finally {
     // Hide loader
     loader.classList.add("hidden");

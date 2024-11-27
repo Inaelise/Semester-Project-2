@@ -1,5 +1,6 @@
 import { getProfile } from "../../api/profile/read";
 import { activeUser } from "../../utilities/activeUser";
+import { displayMessage } from "../../utilities/displayMessage";
 import { closeModal, openModal } from "../../utilities/modal";
 
 export async function viewProfile() {
@@ -65,7 +66,6 @@ export async function viewProfile() {
 
     return profileContainer;
   } catch (error) {
-    //Temporary error alert
-    alert(error.message);
+    displayMessage("profile-container", error.message);
   }
 }

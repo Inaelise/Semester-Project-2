@@ -1,6 +1,7 @@
 import { getListing } from "../../api/listing/read";
 import { activeListingId } from "../../utilities/activeListingId";
 import { createCountdown } from "../../utilities/countdown";
+import { displayMessage } from "../../utilities/displayMessage";
 
 export async function viewListing() {
   const listingId = activeListingId();
@@ -152,7 +153,6 @@ export async function viewListing() {
 
     return listingContainer;
   } catch (error) {
-    //Temporary error alert
-    alert(error.message);
+    displayMessage("listing-container", error.message);
   }
 }
