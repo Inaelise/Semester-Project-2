@@ -43,10 +43,10 @@ export async function viewListings(limit = 9, page = 1, query = "") {
       const img = document.createElement("img");
       if (item.media?.length > 0) {
         const selectedImg = item.media[0];
-        img.src = selectedImg.url || "/public/images/default-img.png";
+        img.src = selectedImg.url || "/images/default-img.png";
         img.alt = selectedImg.alt || "Post image";
       } else {
-        img.src = "/public/images/default-img.png"; // Default image
+        img.src = "/images/default-img.png"; // Default image
         img.alt = "Post image";
       }
 
