@@ -5,6 +5,11 @@ import { createCountdown } from "../../utilities/countdown";
 export async function viewListing() {
   const listingId = activeListingId();
 
+  // Return to home if there's no id
+  if (!activeListingId) {
+    window.location.href = "/";
+  }
+
   try {
     const listing = await getListing(listingId);
 
