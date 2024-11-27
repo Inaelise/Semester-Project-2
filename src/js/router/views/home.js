@@ -1,4 +1,5 @@
 import { viewListings } from "../../ui/listing/viewListings";
+import { displayCredits } from "../../ui/profile/viewCredits";
 
 const searchInput = document.getElementById("search");
 
@@ -9,4 +10,5 @@ searchInput.addEventListener("input", (event) => {
   }
 });
 
+displayCredits();
 viewListings();
