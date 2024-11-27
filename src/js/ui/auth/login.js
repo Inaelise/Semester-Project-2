@@ -13,7 +13,7 @@ export async function onLogin(e) {
     displayMessage("message", "Login successful! Redirecting..");
     setTimeout(() => {
       window.location.href = "/";
-    }, 3000);
+    }, 1300);
   } catch (error) {
     displayMessage("message", error.message);
   }

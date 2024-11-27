@@ -23,7 +23,7 @@ export async function onCreate(e) {
     displayMessage("message", "Listing created successfully! Redirecting..");
     setTimeout(() => {
       window.location.href = `/listing/?id=${newListing.id}`;
-    }, 3000);
+    }, 1300);
   } catch (error) {
     displayMessage("message", error.message);
   }

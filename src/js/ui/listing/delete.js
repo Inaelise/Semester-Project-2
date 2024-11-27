@@ -22,7 +22,7 @@ export async function onDelete(e) {
     );
     setTimeout(() => {
       window.location.href = "/";
-    }, 3000);
+    }, 1300);
   } catch (error) {
     displayMessage("message", error.message);
   }
