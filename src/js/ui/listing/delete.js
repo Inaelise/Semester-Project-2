@@ -16,9 +16,13 @@ export async function onDelete(e) {
 
   try {
     await deleteListing(listingId);
-    //Temporary alert
-    alert(`Listing with id ${listingId} deleted successfully!`);
-    window.location.href = "/";
+    displayMessage(
+      "message",
+      `Listing with id ${listingId} deleted successfully! Redirecting..`
+    );
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000);
   } catch (error) {
     displayMessage("message", error.message);
   }
