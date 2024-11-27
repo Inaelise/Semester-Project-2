@@ -10,8 +10,6 @@ export async function updateProfile(username, { name, avatar, bio }) {
 
   if (response.ok) {
     const { data } = await response.json();
-    //Temporary alert
-    alert("Profile updated");
     return data;
   }
   throw new Error(`Could not update profile with username: ${username}`);
