@@ -13,8 +13,11 @@ export async function onCreate(e) {
   const endsAt = new Date(`${endDate}T${endTime}:00Z`).toISOString();
   data.endsAt = endsAt;
 
-  data.media = [{ url: data.image, alt: "" }];
-  delete data.image;
+  const imageElements = createForm.querySelectorAll("input[name='images[]']");
+  data.media = Array.from(imageElements).map((input) => ({
+    url: input.value,
+    alt: "",
+  }));
 
   data.tags = data.tags.split(",").map((tag) => tag.trim());
 

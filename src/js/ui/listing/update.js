@@ -11,9 +11,11 @@ export async function onUpdateListing(e) {
   const formData = new FormData(editForm);
   const data = Object.fromEntries(formData.entries());
 
-  data.media = [{ url: data.image, alt: "" }];
-  delete data.image;
+  const images = Array.from(
+    document.querySelectorAll("#edit-img input[name='images[]']")
+  ).map((img) => ({ url: img.value, alt: "" }));
 
+  data.media = images;
   data.tags = data.tags.split(",").map((tag) => tag.trim());
 
   try {
