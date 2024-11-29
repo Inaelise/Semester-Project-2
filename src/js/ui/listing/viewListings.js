@@ -7,10 +7,13 @@ import { updatePagination } from "../../utilities/pagination";
 export async function viewListings(limit = 9, page = 1, query = "") {
   const loader = document.getElementById("loader");
   const ul = document.getElementById("list-container");
+  const pagination = document.getElementById("pagination");
 
   try {
     // Show loader
     loader.classList.remove("hidden");
+    // Hide pagination
+    pagination.classList.add("hidden");
 
     let listings;
 
@@ -75,6 +78,8 @@ export async function viewListings(limit = 9, page = 1, query = "") {
     });
 
     updatePagination(limit, page, query);
+    // Show pagination
+    pagination.classList.remove("hidden");
   } catch (error) {
     displayMessage("list-container", error.message);
   } finally {
