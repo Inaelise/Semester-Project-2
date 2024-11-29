@@ -1,10 +1,12 @@
 import { getListing } from "../../api/listing/read";
 import { activeListingId } from "../../utilities/activeListingId";
+import { activeUser } from "../../utilities/activeUser";
 import { createCountdown } from "../../utilities/countdown";
 import { displayMessage } from "../../utilities/displayMessage";
 
 export async function viewListing() {
   const listingId = activeListingId();
+  const user = activeUser();
 
   // Return to home if there's no id
   if (!activeListingId) {
@@ -74,9 +76,13 @@ export async function viewListing() {
     const seller = document.createElement("p");
     seller.textContent = listing.seller.name;
 
-    const editLink = document.createElement("a");
-    editLink.href = `/listing/edit/?id=${listingId}`;
-    editLink.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+    if (user === listing.seller.name) {
+      const editLink = document.createElement("a");
+      editLink.href = `/listing/edit/?id=${listingId}`;
+      editLink.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+      divOne.append(editLink);
+    }
+    divOne.append(seller);
 
     const divTwo = document.createElement("div");
 
@@ -144,7 +150,6 @@ export async function viewListing() {
 
     divThree.append(endTimeContainer);
     divTwo.append(highestBidContainer);
-    divOne.append(seller, editLink);
     listingInfo.insertBefore(divOne, form);
     listingInfo.insertBefore(divTwo, form);
     listingInfo.insertBefore(divThree, form);
