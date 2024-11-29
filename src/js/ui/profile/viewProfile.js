@@ -5,10 +5,14 @@ import { closeModal, openModal } from "../../utilities/modal";
 
 export async function viewProfile() {
   const user = activeUser();
+  const loader = document.getElementById("loader");
   const closeBtn = document.getElementById("close-modal");
   closeBtn.addEventListener("click", closeModal);
 
   try {
+    // Show loader
+    loader.classList.remove("hidden");
+
     const profile = await getProfile(user);
 
     const profileContainer = document.getElementById("profile-container");
@@ -67,5 +71,8 @@ export async function viewProfile() {
     return profileContainer;
   } catch (error) {
     displayMessage("profile-container", error.message);
+  } finally {
+    // Hide loader
+    loader.classList.add("hidden");
   }
 }

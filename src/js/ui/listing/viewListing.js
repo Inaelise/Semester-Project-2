@@ -7,6 +7,7 @@ import { displayMessage } from "../../utilities/displayMessage";
 export async function viewListing() {
   const listingId = activeListingId();
   const user = activeUser();
+  const loader = document.getElementById("loader");
 
   // Return to home if there's no id
   if (!activeListingId) {
@@ -14,6 +15,9 @@ export async function viewListing() {
   }
 
   try {
+    // Show loader
+    loader.classList.remove("hidden");
+
     const listing = await getListing(listingId);
 
     const listingContainer = document.getElementById("listing-container");
@@ -159,5 +163,8 @@ export async function viewListing() {
     return listingContainer;
   } catch (error) {
     displayMessage("listing-container", error.message);
+  } finally {
+    // Hide loader
+    loader.classList.add("hidden");
   }
 }
