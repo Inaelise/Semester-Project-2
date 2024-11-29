@@ -1,8 +1,8 @@
 import "./css/style.css";
 
 import router from "./js/router";
-
-import { onLogout } from "./js/ui/global/logout";
+import { displayHeader } from "./js/utilities/displayHeader";
 
 await router(window.location.pathname);
-onLogout();
+
+displayHeader();
