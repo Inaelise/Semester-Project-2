@@ -26,10 +26,6 @@ addImgBtn.addEventListener("click", () => {
 });
 
 imgContainer.addEventListener("click", (e) => {
-  /* if (e.target.classList.contains("img-remove")) {
-    console.log("Remove button clicked");
-    e.target.closest(".image-input").remove();
-  } */
   if (e.target.closest(".img-remove")) {
     e.target.closest(".img-input").remove();
   }
