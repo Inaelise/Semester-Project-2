@@ -6,7 +6,7 @@ export function onLogout() {
   logoutBtn.addEventListener("click", () => {
     if (window.confirm("Are you sure you want to logout?") === true) {
       logout();
-      window.location.href = "/auth/login/";
+      window.location.href = "/";
     }
   });
 }
