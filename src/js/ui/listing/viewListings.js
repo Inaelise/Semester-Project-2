@@ -1,10 +1,11 @@
+import { filterTags } from "../../api/listing/filter";
 import { getListings } from "../../api/listing/read";
 import { searchListings } from "../../api/listing/search";
 import { createCountdown } from "../../utilities/countdown";
 import { displayMessage } from "../../utilities/displayMessage";
 import { updatePagination } from "../../utilities/pagination";
 
-export async function viewListings(limit = 9, page = 1, query = "") {
+export async function viewListings(limit = 9, page = 1, query = "", tag = "") {
   const loader = document.getElementById("loader");
   const ul = document.getElementById("list-container");
   const pagination = document.getElementById("pagination");
@@ -19,6 +20,8 @@ export async function viewListings(limit = 9, page = 1, query = "") {
 
     if (query) {
       listings = await searchListings(query, limit, page);
+    } else if (tag) {
+      listings = await filterTags(tag, limit, page);
     } else {
       listings = await getListings(limit, page);
     }
@@ -77,7 +80,7 @@ export async function viewListings(limit = 9, page = 1, query = "") {
       ul.append(listItem);
     });
 
-    updatePagination(limit, page, query);
+    updatePagination(limit, page, query, tag);
     // Show pagination
     pagination.classList.remove("hidden");
   } catch (error) {

@@ -1,6 +1,6 @@
 import { viewListings } from "../ui/listing/viewListings";
 
-export function updatePagination(limit, page, query = "") {
+export function updatePagination(limit, page, query = "", tag = "") {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
 
@@ -11,7 +11,7 @@ export function updatePagination(limit, page, query = "") {
   prevBtn.textContent = "Prev";
   prevBtn.addEventListener("click", () => {
     if (page > 1) {
-      viewListings(limit, page - 1, query);
+      viewListings(limit, page - 1, query, tag);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
@@ -28,7 +28,7 @@ export function updatePagination(limit, page, query = "") {
   nextBtn.textContent = "Next";
   nextBtn.addEventListener("click", () => {
     if (listingsCount === limit) {
-      viewListings(limit, page + 1, query);
+      viewListings(limit, page + 1, query, tag);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
