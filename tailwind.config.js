@@ -6,7 +6,7 @@ export default {
       colors: {
         main: "#41354D",
         secondary: "#5B0088",
-        alt: "E0E0E0",
+        alt: "#E0E0E0",
       },
       fontFamily: {
         header: ["Inter", "sans-serif"],
@@ -14,6 +14,8 @@ export default {
       },
       fontSize: {
         small: "14px",
+        medium: "20px",
+        large: "36px",
       },
       backgroundImage: {
         auth: "url('/images/waves-login-register.png')",
@@ -21,6 +23,7 @@ export default {
       },
       dropShadow: {
         btns: "0 4px 2px rgba(0, 0, 0, 0.25)",
+        input: "0 4px 4px rgba(0, 0, 0, 0.25)",
       },
     },
   },
