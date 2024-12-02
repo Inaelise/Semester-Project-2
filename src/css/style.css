@@ -26,4 +26,7 @@
   .line {
     @apply border-b border-[rgb(255,255,255,0.5)] w-full md:hidden;
   }
+  .hover {
+    @apply hover:scale-105 transition-all duration-300 ease-in-out;
+  }
 }
