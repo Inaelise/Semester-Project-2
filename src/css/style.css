@@ -7,7 +7,10 @@
 
 @layer base {
   body {
-    @apply pt-[65px];
+    @apply pt-[65px] pb-[69px];
+  }
+  footer {
+    @apply fixed bottom-0 bg-black w-full py-6 text-white text-center text-small;
   }
 }
 
