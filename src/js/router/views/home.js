@@ -41,6 +41,8 @@ if (!user) {
   container.classList.add("hidden");
   createBtn.classList.add("hidden");
 }
+if (user) {
+  displayCredits();
+}
 
-displayCredits();
 viewListings();
