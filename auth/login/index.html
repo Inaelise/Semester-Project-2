@@ -33,17 +33,26 @@
     <script type="module" src="/src/app.js"></script>
     <title>Login</title>
   </head>
-  <body class="bg-main">
+  <body
+    class="bg-auth bg-cover min-h-[100vh] bg-no-repeat md:bg-none md:bg-main"
+  >
     <header></header>
 
-    <main class="flex justify-center">
-      <section>
-        <h1>Log in</h1>
-        <form name="login">
+    <main class="flex justify-center text-center md:pt-[80px]">
+      <section class="text-white md:text-black md:bg-alt md:w-[350px] md:pb-12">
+        <h1 class="font-medium py-8 text-large">Log in</h1>
+        <div class="pb-10 md:hidden">
+          <h2 class="text-small font-light">Don't have an account?</h2>
+          <a class="underline" href="/auth/register/" title="Go to register"
+            >Sign up here</a
+          >
+        </div>
+        <form class="flex flex-col gap-8" name="login">
           <div id="message"></div>
-          <div>
-            <label for="email">Email</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-medium font-medium" for="email">Email</label>
             <input
+              class="input-field"
               type="email"
               id="email"
               name="email"
@@ -51,22 +60,37 @@
               required
             />
           </div>
-          <div>
-            <label for="password">Password</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-medium font-medium" for="password"
+              >Password</label
+            >
             <input
+              class="input-field"
               type="password"
               id="password"
               name="password"
-              placeholder="*********"
+              placeholder="••••••••"
               required
             />
           </div>
-          <button title="Click to log in">Log in</button>
+          <button
+            class="btn hover bg-secondary drop-shadow-btns text-white m-auto mt-6"
+            title="Click to log in"
+          >
+            Log in
+          </button>
         </form>
       </section>
-      <section class="bg-auth">
-        <h2>Don't have an account?</h2>
-        <a href="/auth/register/" title="Go to register">Sign up here</a>
+      <section
+        class="text-white bg-auth bg-cover bg-no-repeat bg-center aspect-square hidden md:flex md:flex-col md:justify-center md:w-[350px]"
+      >
+        <h2 class="text-small font-light">Don't have an account?</h2>
+        <a
+          class="underline hover:text-secondary transition-all duration-300 ease-in-out"
+          href="/auth/register/"
+          title="Go to register"
+          >Sign up here</a
+        >
       </section>
     </main>
 
