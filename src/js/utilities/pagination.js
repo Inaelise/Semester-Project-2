@@ -8,6 +8,21 @@ export function updatePagination(limit, page, query = "", tag = "") {
     document.getElementById("list-container").childElementCount;
 
   const prevBtn = document.createElement("button");
+  prevBtn.classList.add(
+    "disabled:border",
+    "disabled:border-[#0000006d]",
+    "disabled:bg-transparent",
+    "disabled:text-[#0000006d]",
+    "disabled:hover:scale-100",
+    "disabled:hover:shadow-none",
+    "bg-secondary",
+    "text-white",
+    "rounded-3xl",
+    "w-[73px]",
+    "h-[43px]",
+    "hover",
+    "hover:shadow-spread"
+  );
   prevBtn.textContent = "Prev";
   prevBtn.addEventListener("click", () => {
     if (page > 1) {
@@ -25,6 +40,21 @@ export function updatePagination(limit, page, query = "", tag = "") {
   pageText.textContent = page;
 
   const nextBtn = document.createElement("button");
+  nextBtn.classList.add(
+    "disabled:border",
+    "disabled:border-[#0000006d]",
+    "disabled:bg-transparent",
+    "disabled:text-[#0000006d]",
+    "disabled:hover:scale-100",
+    "disabled:hover:shadow-none",
+    "bg-secondary",
+    "text-white",
+    "rounded-3xl",
+    "w-[73px]",
+    "h-[43px]",
+    "hover",
+    "hover:shadow-spread"
+  );
   nextBtn.textContent = "Next";
   nextBtn.addEventListener("click", () => {
     if (listingsCount === limit) {
