@@ -23,7 +23,7 @@
   }
 
   .btn {
-    @apply w-[125px] h-[47px] drop-shadow-btns rounded-2xl font-black;
+    @apply w-[125px] h-[47px] drop-shadow-btns bg-secondary text-white rounded-2xl font-black;
   }
 
   .bar {
