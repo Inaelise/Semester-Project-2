@@ -16,6 +16,7 @@ export default {
         small: "14px",
         medium: "20px",
         large: "36px",
+        xLarge: "46px",
       },
       backgroundImage: {
         auth: "url('/images/waves-login-register.png')",
@@ -25,6 +26,8 @@ export default {
       dropShadow: {
         btns: "0 4px 2px rgba(0, 0, 0, 0.25)",
         input: "0 4px 4px rgba(0, 0, 0, 0.25)",
+        text: "0 1px 1px rgba(0, 0, 0, 0.25)",
+        filterBtns: "0 2px 2px rgba(0, 0, 0, 0.25)",
       },
       boxShadow: {
         spread: "2px 2px 5px rgba(0, 0, 0, 0.450)",
