@@ -19,7 +19,7 @@
   }
 
   .logout-btn {
-    @apply border rounded-full px-4 py-1;
+    @apply hover border rounded-full px-4 py-1 hover:border-2 transition-all duration-200 ease-in-out;
   }
 
   .btn {
@@ -29,14 +29,24 @@
   .bar {
     @apply h-[3px] w-6 bg-white my-1 rounded-full;
   }
+
   .line {
     @apply border-b border-[rgb(255,255,255,0.5)] w-full md:hidden;
   }
+
   .hover {
     @apply hover:scale-105 transition-all duration-300 ease-in-out;
   }
 
   .input-field {
     @apply text-center rounded-xl py-2 px-4 w-[240px] drop-shadow-input md:m-auto;
+  }
+
+  .filter-img {
+    @apply w-[63px] h-[63px] object-cover rounded-full drop-shadow-filterBtns min-[550px]:w-[83px] min-[550px]:h-[83px] md:w-[125px] md:h-[125px];
+  }
+
+  .filter-name {
+    @apply font-medium text-small;
   }
 }
