@@ -39,54 +39,75 @@
       <div
         class="bg-home absolute top-0 bg-contain left-0 bg-no-repeat w-full h-[90vh]"
       >
-        <h1 class="absolute top-2 left-8 text-white font-medium text-[28px]">
+        <h1
+          class="absolute top-3 left-10 text-white font-medium text-[28px] min-[500px]:left-[100px] min-[500px]:top-8 sm:top-16 sm:left-[140px] md:top-[80px] md:left-[170px] md:text-large lg:top-[100px] lg:left-[230px] lg:text-xLarge xl:left-[340px] xl:top-[130px] 2xl:top-[180px] 2xl:left-[400px]"
+        >
           Listings
         </h1>
       </div>
-      <div class="pt-20">
-        <ul>
-          <li>
+      <div
+        class="pt-[135px] px-2 pb-16 min-[550px]:pt-[200px] md:pt-[250px] lg:pt-[300px] xl:pt-[370px] 2xl:pt-[470px]"
+      >
+        <ul class="flex gap-4 justify-center min-[550px]:gap-8 md:gap-12">
+          <li class="flex flex-col items-center gap-1 md:gap-2">
             <img
+              class="filter-img hover"
               title="Click to filter furniture"
               src="/images/furniture.jpg"
               data-tag="furniture"
             />
-            <p>Furniture</p>
+            <p class="filter-name">Furniture</p>
           </li>
-          <li>
+          <li class="flex flex-col items-center gap-1 md:gap-2">
             <img
+              class="filter-img hover"
               title="Click to filter art"
               src="/images/art.jpg"
               data-tag="art"
             />
-            <p>Art</p>
+            <p class="filter-name">Art</p>
           </li>
-          <li>
+          <li class="flex flex-col items-center gap-1 md:gap-2">
             <img
+              class="filter-img hover"
               title="Click to filter jewelry"
               src="/images/jewelry.jpg"
               data-tag="jewelry"
             />
-            <p>Jewelry</p>
+            <p class="filter-name">Jewelry</p>
           </li>
-          <li>
+          <li class="flex flex-col items-center gap-1 md:gap-2">
             <img
+              class="filter-img hover"
               title="Click to filter fashion"
               src="/images/fashion.jpg"
               data-tag="fashion"
             />
-            <p>Fashion</p>
+            <p class="filter-name">Fashion</p>
           </li>
         </ul>
       </div>
-      <div>
-        <div id="credit-container">
-          <i class="fa-solid fa-coins"></i>
-          <p id="credits"></p>
+      <div
+        class="px-7 pt-6 pb-10 grid grid-cols-2 grid-rows-2 items-center place-items-center m-auto max-w-[320px] md:max-w-[630px] min-[927px]:max-w-[950px] md:grid-cols-3 md:grid-rows-1"
+      >
+        <div
+          class="flex gap-1 items-center place-self-start md:self-center"
+          id="credit-container"
+        >
+          <i class="fa-solid fa-coins text-secondary"></i>
+          <p
+            class="font-semibold text-medium drop-shadow-text"
+            id="credits"
+          ></p>
         </div>
-        <div>
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <div
+          class="relative col-span-2 col-start-1 row-start-2 place-self-center md:col-span-1 md:row-start-1 md:col-start-2"
+        >
+          <i
+            class="absolute fa-solid fa-magnifying-glass fa-lg text-secondary z-10 top-5 left-2"
+          ></i>
           <input
+            class="input-field bg-alt drop-shadow-none rounded-2xl w-[260px]"
             type="search"
             id="search"
             name="search"
@@ -95,10 +116,17 @@
             aria-label="search"
           />
         </div>
-
-        <a id="create-link" href="/listing/create/" title="Go to create listing"
-          >Create listing</a
+        <div
+          class="hover col-start-2 row-start-1 place-self-end mb-10 md:col-start-3 md:self-center md:mb-0"
         >
+          <a
+            class="btn py-3 px-4 rounded-full"
+            id="create-link"
+            href="/listing/create/"
+            title="Go to create listing"
+            >Create listing</a
+          >
+        </div>
       </div>
       <div
         id="loader"
@@ -108,8 +136,14 @@
           class="spinner inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
         ></div>
       </div>
-      <ul id="list-container"></ul>
-      <div id="pagination"></div>
+      <ul
+        class="flex flex-col gap-10 items-center justify-center max-w-[800px] md:gap-20 md:m-auto md:px-4 md:flex-row md:flex-wrap md:max-w-[1000px]"
+        id="list-container"
+      ></ul>
+      <div
+        class="flex justify-center items-center py-14 gap-12"
+        id="pagination"
+      ></div>
     </main>
 
     <footer>
