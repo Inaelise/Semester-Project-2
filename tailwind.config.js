@@ -19,11 +19,15 @@ export default {
       },
       backgroundImage: {
         auth: "url('/images/waves-login-register.png')",
+        home: "url('/images/waves-main.png')",
         profile: "url('/images/waves-profile.png')",
       },
       dropShadow: {
         btns: "0 4px 2px rgba(0, 0, 0, 0.25)",
         input: "0 4px 4px rgba(0, 0, 0, 0.25)",
+      },
+      boxShadow: {
+        spread: "2px 2px 5px rgba(0, 0, 0, 0.450)",
       },
     },
   },
