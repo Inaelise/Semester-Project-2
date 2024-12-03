@@ -33,17 +33,26 @@
     <script type="module" src="/src/app.js"></script>
     <title>Register</title>
   </head>
-  <body>
+  <body
+    class="bg-auth bg-cover min-h-[100vh] bg-no-repeat md:bg-none md:bg-main"
+  >
     <header></header>
 
-    <main>
-      <section>
-        <h1>Register</h1>
-        <form name="register">
+    <main class="flex flex-row-reverse justify-center text-center md:pt-[80px]">
+      <section class="text-white md:text-black md:bg-alt md:w-[350px] md:pb-12">
+        <h1 class="font-medium py-8 text-large">Register</h1>
+        <div class="pb-10 md:hidden">
+          <h2 class="text-small font-light">Already have an account?</h2>
+          <a class="underline" href="/auth/login/" title="Go to login"
+            >Log in here</a
+          >
+        </div>
+        <form class="flex flex-col gap-8" name="register">
           <div id="message"></div>
-          <div>
-            <label for="name">Name</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-medium font-medium" for="name">Name</label>
             <input
+              class="input-field"
               type="text"
               id="name"
               name="name"
@@ -53,9 +62,10 @@
               required
             />
           </div>
-          <div>
-            <label for="email">Email</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-medium font-medium" for="email">Email</label>
             <input
+              class="input-field"
               type="email"
               id="email"
               name="email"
@@ -64,23 +74,38 @@
               required
             />
           </div>
-          <div>
-            <label for="password">Password</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-medium font-medium" for="password"
+              >Password</label
+            >
             <input
+              class="input-field"
               type="password"
               id="password"
               name="password"
-              placeholder="*********"
+              placeholder="••••••••"
               minlength="8"
               required
             />
           </div>
-          <button title="Click to register account">Register</button>
+          <button
+            class="btn hover m-auto mt-6"
+            title="Click to register account"
+          >
+            Register
+          </button>
         </form>
       </section>
-      <section>
-        <h2>Already have an account?</h2>
-        <a href="/auth/login/" title="Go to login">Log in here</a>
+      <section
+        class="text-white bg-auth bg-cover bg-no-repeat bg-center aspect-square hidden md:flex md:flex-col md:justify-center md:w-[350px]"
+      >
+        <h2 class="text-small font-light">Already have an account?</h2>
+        <a
+          class="underline hover:text-secondary transition-all duration-300 ease-in-out"
+          href="/auth/login/"
+          title="Go to login"
+          >Log in here</a
+        >
       </section>
     </main>
 
