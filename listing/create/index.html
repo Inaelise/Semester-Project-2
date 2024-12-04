@@ -36,34 +36,83 @@
   <body>
     <header></header>
 
-    <main>
-      <h1>Create listing</h1>
-      <form name="createListing">
-        <div id="message"></div>
-        <div>
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
-        </div>
-        <div>
-          <label for="description">Description</label>
-          <textarea id="description" name="description" required></textarea>
-        </div>
-        <div>
-          <label for="tags">Tags</label>
+    <main class="relative bg-profile bg-no-repeat bg-cover min-h-[90vh]">
+      <h1
+        class="font-medium text-[28px] text-center pt-8 pb-4 text-white md:text-large md:pb-12"
+      >
+        Create listing
+      </h1>
+      <form
+        class="flex flex-col gap-8 md:grid md:grid-cols-2 md:items-center md:w-[700px] md:m-auto"
+        name="createListing"
+      >
+        <div
+          class="text-center md:absolute md:top-[13%] md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%]"
+          id="message"
+        ></div>
+        <div
+          class="flex flex-col items-center gap-2 md:col-start-1 md:row-start-1"
+        >
+          <label class="text-medium font-medium text-white" for="title"
+            >Title</label
+          >
           <input
+            class="input-field"
+            type="text"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+        <div
+          class="flex flex-col items-center gap-2 md:col-start-1 md:row-start-2"
+        >
+          <label class="text-medium font-medium text-white" for="description"
+            >Description</label
+          >
+          <textarea
+            class="input-field"
+            id="description"
+            name="description"
+            required
+          ></textarea>
+        </div>
+        <div
+          class="flex flex-col items-center gap-2 md:col-start-1 md:row-start-3"
+        >
+          <label class="text-medium font-medium text-white" for="tags"
+            >Tags</label
+          >
+          <input
+            class="input-field"
             type="text"
             id="tags"
             name="tags"
             placeholder="separate with comma"
           />
         </div>
-        <div>
-          <label for="end-date">End date</label>
-          <input type="date" id="end-date" name="end-date" required />
-        </div>
-        <div>
-          <label for="end-time">End time</label>
+        <div
+          class="flex flex-col items-center gap-2 md:col-start-2 md:row-start-1"
+        >
+          <label class="text-medium font-medium text-white" for="end-date"
+            >End date</label
+          >
           <input
+            class="input-field"
+            type="date"
+            id="end-date"
+            name="end-date"
+            required
+          />
+        </div>
+        <div
+          class="flex flex-col items-center gap-2 md:col-start-2 md:row-start-2"
+        >
+          <label class="text-medium font-medium text-white" for="end-time"
+            >End time</label
+          >
+          <input
+            class="input-field"
             type="time"
             id="end-time"
             name="end-time"
@@ -71,11 +120,16 @@
             required
           />
         </div>
-        <div>
-          <div id="img-container">
-            <label for="image">Image url</label>
+        <div
+          class="flex flex-col items-center gap-2 w-full md:col-start-2 md:row-start-3 md:row-span-3"
+        >
+          <div class="flex flex-col items-center gap-2" id="img-container">
+            <label class="text-medium font-medium text-white" for="image"
+              >Image url</label
+            >
             <div class="img-input">
               <input
+                class="input-field"
                 type="url"
                 id="image"
                 name="images[]"
@@ -85,14 +139,21 @@
             </div>
           </div>
           <button
+            class="hover border-2 rounded-full w-[26px] h-[26px] my-2"
             type="button"
             id="add-img"
             title="Click to add more image urls"
           >
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus fa-sm text-center text-white"></i>
           </button>
         </div>
-        <button type="submit" title="Click to create listing">Create</button>
+        <button
+          class="btn hover m-auto mb-10 md:col-span-2 md:mt-14"
+          type="submit"
+          title="Click to create listing"
+        >
+          Create
+        </button>
       </form>
     </main>
 

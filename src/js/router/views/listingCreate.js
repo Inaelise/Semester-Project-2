@@ -12,14 +12,17 @@ addImgBtn.addEventListener("click", () => {
   const newImg = document.createElement("div");
   newImg.className = "img-input";
   newImg.innerHTML = `
+  <div class="ml-6">
     <input
+      class="input-field my-2"
       type="url"
       id="image"
       name="images[]"
       placeholder="https://exampleurl.com"
       pattern="https://.*"
     />
-    <button type="button" class="img-remove" title="Click to remove image url"><i class="fa-solid fa-trash"></i></button>
+    <button type="button" class="img-remove hover hover:shadow-none text-white text-medium ml-2" title="Click to remove image url">&times;</button>
+  </div>
   `;
 
   imgContainer.append(newImg);
