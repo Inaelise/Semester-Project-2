@@ -15,6 +15,8 @@ export async function viewProfile() {
 
     const profile = await getProfile(user);
 
+    document.title = user;
+
     const profileContainer = document.getElementById("profile-container");
 
     const creditsDiv = document.createElement("div");
