@@ -38,7 +38,7 @@ export async function viewListings(limit = 9, page = 1, query = "", tag = "") {
     // Render listings
     listings.forEach((item) => {
       const listItem = document.createElement("li");
-      listItem.classList.add("w-[245px]", "hover");
+      listItem.classList.add("w-[245px]", "hover", "hover:shadow-none");
       listItem.title = "Go to listing";
 
       const link = document.createElement("a");

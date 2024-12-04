@@ -35,7 +35,7 @@
   }
 
   .hover {
-    @apply hover:scale-105 transition-all duration-300 ease-in-out;
+    @apply hover:scale-105 hover:shadow-spread transition-all duration-300 ease-in-out;
   }
 
   .input-field {
@@ -43,7 +43,7 @@
   }
 
   .filter-img {
-    @apply hover w-[63px] h-[63px] object-cover rounded-full drop-shadow-filterBtns hover:shadow-spread min-[550px]:w-[83px] min-[550px]:h-[83px] md:w-[125px] md:h-[125px];
+    @apply hover w-[63px] h-[63px] object-cover rounded-full drop-shadow-filterBtns min-[550px]:w-[83px] min-[550px]:h-[83px] md:w-[125px] md:h-[125px];
   }
 
   .filter-name {
