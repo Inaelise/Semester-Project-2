@@ -36,25 +36,49 @@
   <body>
     <header></header>
 
-    <main>
-      <h1>Profile</h1>
-      <div
-        id="loader"
-        class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-30 hidden"
-      >
+    <main
+      class="relative bg-profile bg-no-repeat bg-cover min-h-[90vh] flex justify-center"
+    >
+      <section>
+        <h1
+          class="font-medium text-[28px] text-center text-white py-8 md:py-14 md:text-large"
+        >
+          My profile
+        </h1>
         <div
-          class="spinner inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          id="loader"
+          class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-30 hidden"
+        >
+          <div
+            class="spinner inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          ></div>
+        </div>
+        <div
+          class="flex flex-col items-center gap-2 text-white"
+          id="profile-container"
         ></div>
-      </div>
-      <div id="profile-container"></div>
+      </section>
       <!--Modal is hidden initially-->
-      <div id="update-modal" class="hidden">
-        <span id="close-modal">&times;</span>
-        <form name="editProfile">
+      <section
+        class="absolute top-0 bg-alt w-full min-h-[90vh] px-4 drop-shadow-input md:w-[582px] md:min-h-[750px] md:top-10"
+        id="update-modal"
+        class="hidden"
+      >
+        <span
+          class="absolute right-2 text-large"
+          id="close-modal"
+          title="Click to close"
+          >&times;</span
+        >
+        <h3 class="font-medium text-[28px] text-center pt-4 pb-6">
+          Edit profile
+        </h3>
+        <form class="flex flex-col gap-8 items-center" name="editProfile">
           <div id="message"></div>
-          <div>
-            <label for="name">Name</label>
+          <div class="flex flex-col gap-2 items-center">
+            <label class="text-medium font-medium" for="name">Name</label>
             <input
+              class="input-field"
               type="text"
               id="name"
               name="name"
@@ -62,17 +86,35 @@
               pattern="^[\w]+$"
             />
           </div>
-          <div>
-            <label for="avatar">Avatar url</label>
-            <input type="url" id="avatar" name="avatar" pattern="https://.*" />
+          <div class="flex flex-col gap-2 items-center">
+            <label class="text-medium font-medium" for="avatar"
+              >Avatar url</label
+            >
+            <input
+              class="input-field"
+              type="url"
+              id="avatar"
+              name="avatar"
+              pattern="https://.*"
+            />
           </div>
-          <div>
-            <label for="bio">Bio</label>
-            <textarea id="bio" name="bio"></textarea>
+          <div class="flex flex-col gap-2 items-center">
+            <label class="text-medium font-medium" for="bio">Bio</label>
+            <textarea
+              class="input-field h-[128px]"
+              id="bio"
+              name="bio"
+            ></textarea>
           </div>
-          <button type="submit" title="Click to update profile">Update</button>
+          <button
+            class="btn hover hover:shadow-spread"
+            type="submit"
+            title="Click to update profile"
+          >
+            Update
+          </button>
         </form>
-      </div>
+      </section>
     </main>
 
     <footer>
