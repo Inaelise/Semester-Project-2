@@ -115,6 +115,7 @@ export async function viewListing() {
     const tags = document.createElement("p");
     tags.textContent = listing.tags.join(", ");
 
+    const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
     const bidsTitle = document.createElement("h3");
     bidsTitle.textContent = "Bid history";
@@ -127,6 +128,12 @@ export async function viewListing() {
 
         const bidderInfo = document.createElement("div");
         const bidderAvatar = document.createElement("img");
+        bidderAvatar.classList.add(
+          "w-[43px]",
+          "h-[43px]",
+          "object-cover",
+          "rounded-full"
+        );
         bidderAvatar.src = bid.bidder.avatar.url;
 
         const bidderName = document.createElement("p");
@@ -158,9 +165,11 @@ export async function viewListing() {
     listingInfo.insertBefore(divTwo, form);
     listingInfo.insertBefore(divThree, form);
     listingInfo.insertBefore(description, form);
-    listingInfo.append(tags, bidHistoryContainer);
+    listingInfo.append(tags);
 
-    return listingContainer;
+    bidSection.append(bidHistoryContainer);
+
+    return listingContainer, bidSection;
   } catch (error) {
     displayMessage("listing-container", error.message);
   } finally {

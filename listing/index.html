@@ -37,29 +37,32 @@
     <header></header>
 
     <main>
-      <h1>Listing item</h1>
-      <div
-        id="loader"
-        class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-30 hidden"
-      >
+      <section>
+        <h1>Listing item</h1>
         <div
-          class="spinner inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        ></div>
-      </div>
-      <div id="listing-container">
-        <div id="flex-container">
-          <div id="image-gallery"></div>
-          <div id="listing-info">
-            <form name="makeBid" id="make-bid">
-              <div>
-                <i class="fa-solid fa-coins"></i>
-                <input id="bid" name="bid" />
-              </div>
-              <button title="Click to place bid">Place bid</button>
-            </form>
+          id="loader"
+          class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-30 hidden"
+        >
+          <div
+            class="spinner inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          ></div>
+        </div>
+        <div id="listing-container">
+          <div id="flex-container">
+            <div id="image-gallery"></div>
+            <div id="listing-info">
+              <form name="makeBid" id="make-bid">
+                <div>
+                  <i class="fa-solid fa-coins"></i>
+                  <input id="bid" name="bid" />
+                </div>
+                <button title="Click to place bid">Place bid</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      <section id="bid-history"></section>
     </main>
 
     <footer>
