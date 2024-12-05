@@ -26,9 +26,19 @@ export async function viewListing() {
     title.textContent = listing.title;
     listingContainer.insertBefore(title, listingContainer.firstChild);
 
+    const tags = document.createElement("p");
+    tags.textContent = listing.tags.join(", ");
+
     const gallery = document.getElementById("image-gallery");
     const imgContainer = document.createElement("div");
     const mainImg = document.createElement("img");
+    mainImg.classList.add(
+      "w-[280px]",
+      "h-[250px]",
+      "object-cover",
+      "sm:w-[465px]",
+      "sm:h-[350px]"
+    );
     // Make the actual gallery
     if (listing.media.length > 0) {
       const firstImg = listing.media[0];
@@ -43,11 +53,19 @@ export async function viewListing() {
     gallery.append(imgContainer);
 
     const thumbnailsContainer = document.createElement("div");
+    thumbnailsContainer.classList.add("flex", "flex-row", "gap-[12px]");
 
     if (listing.media.length > 0) {
       listing.media.forEach((mediaItem, index) => {
         if (index > 0) {
           const thumbnail = document.createElement("img");
+          thumbnail.classList.add(
+            "w-[66px]",
+            "h-[59px]",
+            "object-cover",
+            "sm:w-[86px]",
+            "sm:h-[79px]"
+          );
           thumbnail.src = mediaItem.url;
           thumbnail.alt = mediaItem.alt || "Thumbnail image";
 
@@ -71,7 +89,7 @@ export async function viewListing() {
       });
     }
 
-    gallery.append(thumbnailsContainer);
+    gallery.append(thumbnailsContainer, tags);
 
     const listingInfo = document.getElementById("listing-info");
     const form = document.getElementById("make-bid");
@@ -111,9 +129,6 @@ export async function viewListing() {
 
     const description = document.createElement("p");
     description.textContent = listing.description;
-
-    const tags = document.createElement("p");
-    tags.textContent = listing.tags.join(", ");
 
     const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
@@ -165,7 +180,6 @@ export async function viewListing() {
     listingInfo.insertBefore(divTwo, form);
     listingInfo.insertBefore(divThree, form);
     listingInfo.insertBefore(description, form);
-    listingInfo.append(tags);
 
     bidSection.append(bidHistoryContainer);
 
