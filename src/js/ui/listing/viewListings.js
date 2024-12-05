@@ -31,7 +31,8 @@ export async function viewListings(limit = 9, page = 1, query = "", tag = "") {
 
     // If no listings found
     if (!Array.isArray(listings) || listings.length === 0) {
-      ul.innerHTML = "<p>No listings found.</p>";
+      ul.innerHTML =
+        "<div class='bg-alt h-[100px] px-[60px] text-center drop-shadow-input flex flex-col items-center justify-center gap-4 md:mt-[20px] md:mb-[60px]'><i class='fa-solid fa-circle-exclamation fa-xl md:fa-2xl text-[#0000005b] drop-shadow-filterBtns'></i><p class='text-[#00000088]'>No listings found.</p></div>";
       return;
     }
 
