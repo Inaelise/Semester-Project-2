@@ -23,7 +23,7 @@ export async function viewListing() {
     const listingContainer = document.getElementById("listing-container");
 
     const title = document.createElement("h2");
-    title.classList.add("place-self-start", "font-medium", "text-medium");
+    title.classList.add("place-self-start", "font-medium", "text-largeMed");
     title.textContent = listing.title;
 
     const tags = document.createElement("p");
@@ -103,12 +103,13 @@ export async function viewListing() {
     );
 
     const seller = document.createElement("p");
+    seller.classList.add("font-medium");
     seller.textContent = listing.seller.name;
 
     if (user === listing.seller.name) {
       const editLink = document.createElement("a");
       editLink.href = `/listing/edit/?id=${listingId}`;
-      editLink.innerHTML = `<i class="fa-solid fa-pen-to-square fa-lg"></i>`;
+      editLink.innerHTML = `<i class="hover fa-solid fa-pen-to-square fa-lg"></i>`;
       divOne.append(editLink);
     }
     divOne.append(seller);
@@ -159,11 +160,29 @@ export async function viewListing() {
     divContainer.append(divTwo, divThree);
 
     const description = document.createElement("p");
+    description.classList.add("text-center", "py-6", "lg:text-left");
     description.textContent = listing.description;
 
     const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
+    bidHistoryContainer.classList.add(
+      "flex",
+      "flex-col",
+      "items-center",
+      "m-auto",
+      "px-3",
+      "divide-y",
+      "divide-slate-300",
+      "max-w-[655px]"
+    );
     const bidsTitle = document.createElement("h3");
+    bidsTitle.classList.add(
+      "font-medium",
+      "text-medium",
+      "text-center",
+      "w-full",
+      "pb-3"
+    );
     bidsTitle.textContent = "Bid history";
     bidHistoryContainer.append(bidsTitle);
 
@@ -171,8 +190,10 @@ export async function viewListing() {
       const sortedBids = [...listing.bids].sort((a, b) => b.amount - a.amount);
       sortedBids.forEach((bid) => {
         const bidContainer = document.createElement("div");
+        bidContainer.classList.add("flex", "w-full", "justify-between", "py-4");
 
         const bidderInfo = document.createElement("div");
+        bidderInfo.classList.add("flex", "gap-2", "items-center");
         const bidderAvatar = document.createElement("img");
         bidderAvatar.classList.add(
           "w-[43px]",
@@ -183,12 +204,15 @@ export async function viewListing() {
         bidderAvatar.src = bid.bidder.avatar.url;
 
         const bidderName = document.createElement("p");
+        bidderName.classList.add("font-medium", "text-small");
         bidderName.textContent = bid.bidder.name;
 
         bidderInfo.append(bidderAvatar, bidderName);
 
         const bidAmountDiv = document.createElement("div");
+        bidAmountDiv.classList.add("flex", "gap-2", "items-center");
         const bidAmount = document.createElement("p");
+        bidAmount.classList.add("font-semibold");
         bidAmount.textContent = bid.amount;
 
         const creditIcon = document.createElement("span");
