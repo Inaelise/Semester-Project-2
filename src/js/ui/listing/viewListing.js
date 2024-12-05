@@ -23,10 +23,11 @@ export async function viewListing() {
     const listingContainer = document.getElementById("listing-container");
 
     const title = document.createElement("h2");
+    title.classList.add("place-self-start", "font-medium", "text-medium");
     title.textContent = listing.title;
-    listingContainer.insertBefore(title, listingContainer.firstChild);
 
     const tags = document.createElement("p");
+    tags.classList.add("text-small", "text-[#000000c8]");
     tags.textContent = listing.tags.join(", ");
 
     const gallery = document.getElementById("image-gallery");
@@ -50,7 +51,7 @@ export async function viewListing() {
       mainImg.src = "Default image";
       imgContainer.append(mainImg);
     }
-    gallery.append(imgContainer);
+    gallery.append(title, imgContainer);
 
     const thumbnailsContainer = document.createElement("div");
     thumbnailsContainer.classList.add("flex", "flex-row", "gap-[12px]");
@@ -94,6 +95,12 @@ export async function viewListing() {
     const listingInfo = document.getElementById("listing-info");
     const form = document.getElementById("make-bid");
     const divOne = document.createElement("div");
+    divOne.classList.add(
+      "flex",
+      "flex-row-reverse",
+      "justify-between",
+      "items-center"
+    );
 
     const seller = document.createElement("p");
     seller.textContent = listing.seller.name;
@@ -101,31 +108,55 @@ export async function viewListing() {
     if (user === listing.seller.name) {
       const editLink = document.createElement("a");
       editLink.href = `/listing/edit/?id=${listingId}`;
-      editLink.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+      editLink.innerHTML = `<i class="fa-solid fa-pen-to-square fa-lg"></i>`;
       divOne.append(editLink);
     }
     divOne.append(seller);
 
+    const divContainer = document.createElement("div");
+    divContainer.classList.add(
+      "bg-main",
+      "rounded-xl",
+      "flex",
+      "justify-between",
+      "py-2",
+      "px-3",
+      "text-white",
+      "w-full"
+    );
+
     const divTwo = document.createElement("div");
 
     const highestBidContainer = document.createElement("div");
+    const currentBidContainer = document.createElement("div");
+    currentBidContainer.classList.add("flex", "gap-2", "items-center");
+
+    const bidIcon = document.createElement("span");
+    bidIcon.innerHTML = `<i class="fa-solid fa-coins fa-xs"></i>`;
+
     const highestBid = document.createElement("p");
+    highestBid.classList.add("font-semibold", "text-medium");
     highestBid.textContent =
       listing.bids.length > 0
         ? Math.max(...listing.bids.map((bid) => bid.amount))
         : 0;
     const highestBidText = document.createElement("p");
+    highestBidText.classList.add("font-light", "text-[#ffffff9b]");
     highestBidText.textContent = "Highest bid";
-
-    highestBidContainer.append(highestBid, highestBidText);
+    currentBidContainer.append(bidIcon, highestBid);
+    highestBidContainer.append(currentBidContainer, highestBidText);
 
     const divThree = document.createElement("div");
 
     const endTimeContainer = document.createElement("div");
+    endTimeContainer.classList.add("font-semibold", "text-medium");
     createCountdown(listing.endsAt, endTimeContainer);
     const endTimeText = document.createElement("p");
+    endTimeText.classList.add("font-light", "text-base", "text-[#ffffff9b]");
     endTimeText.textContent = "Ends in";
     endTimeContainer.append(endTimeText);
+
+    divContainer.append(divTwo, divThree);
 
     const description = document.createElement("p");
     description.textContent = listing.description;
@@ -177,8 +208,7 @@ export async function viewListing() {
     divThree.append(endTimeContainer);
     divTwo.append(highestBidContainer);
     listingInfo.insertBefore(divOne, form);
-    listingInfo.insertBefore(divTwo, form);
-    listingInfo.insertBefore(divThree, form);
+    listingInfo.insertBefore(divContainer, form);
     listingInfo.insertBefore(description, form);
 
     bidSection.append(bidHistoryContainer);
