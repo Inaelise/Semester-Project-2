@@ -108,6 +108,7 @@ export async function viewListing() {
 
     if (user === listing.seller.name) {
       const editLink = document.createElement("a");
+      editLink.classList.add("z-10");
       editLink.href = `/listing/edit/?id=${listingId}`;
       editLink.innerHTML = `<i class="hover fa-solid fa-pen-to-square fa-lg"></i>`;
       divOne.append(editLink);
