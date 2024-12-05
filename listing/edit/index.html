@@ -36,43 +36,81 @@
   <body>
     <header></header>
 
-    <main>
-      <h1>Edit listing</h1>
-      <form name="editListing">
+    <main class="bg-profile bg-no-repeat bg-cover min-h-[90vh]">
+      <h1
+        class="font-medium text-[28px] text-center pt-8 pb-4 text-white md:text-large md:pb-8"
+      >
+        Edit listing
+      </h1>
+      <form class="flex flex-col gap-8" name="editListing">
         <div id="message"></div>
-        <div>
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
-        </div>
-        <div>
-          <label for="description">Description</label>
-          <textarea id="description" name="description" required></textarea>
-        </div>
-        <div>
-          <label for="tags">Tags</label>
+        <div class="flex flex-col items-center gap-2">
+          <label class="text-medium font-medium text-white" for="title"
+            >Title</label
+          >
           <input
+            class="input-field"
+            type="text"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <label class="text-medium font-medium text-white" for="description"
+            >Description</label
+          >
+          <textarea
+            class="input-field"
+            id="description"
+            name="description"
+            required
+          ></textarea>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <label class="text-medium font-medium text-white" for="tags"
+            >Tags</label
+          >
+          <input
+            class="input-field"
             type="text"
             id="tags"
             name="tags"
             placeholder="separate with comma"
           />
         </div>
-        <div>
-          <label for="image">Image url</label>
-          <div id="edit-img"></div>
+        <div class="flex flex-col items-center gap-2">
+          <label class="text-medium font-medium text-white" for="image"
+            >Image url</label
+          >
+          <div class="ml-6" id="edit-img"></div>
           <button
+            class="hover border-2 rounded-full w-[26px] h-[26px] my-2"
             type="button"
             id="add-img"
             title="Click to add more image urls"
           >
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus fa-sm text-center text-white"></i>
           </button>
         </div>
-        <div>
-          <button id="delete-btn" type="button" title="Click to delete listing">
+        <div
+          class="flex flex-col items-center gap-6 pb-10 md:pb-20 md:flex-row md:justify-center md:gap-16"
+        >
+          <button
+            class="btn hover"
+            type="submit"
+            title="Click to update listing"
+          >
+            Update
+          </button>
+          <button
+            class="btn hover bg-[#70191A] uppercase"
+            id="delete-btn"
+            type="button"
+            title="Click to delete listing"
+          >
             Delete
           </button>
-          <button type="submit" title="Click to update listing">Update</button>
         </div>
       </form>
     </main>

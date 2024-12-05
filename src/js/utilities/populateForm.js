@@ -24,15 +24,14 @@ export async function populateListingEdit() {
         const imgInput = document.createElement("div");
         imgInput.className = "img-input";
         imgInput.innerHTML = `<input
+            class="input-field my-2"
             type="url"
             name="images[]"
             placeholder="https://exampleurl.com"
             pattern="https://.*"
             value="${img.url}"
           />
-          <button type="button" class="img-remove" title="Click to remove image URL">
-            <i class="fa-solid fa-trash"></i>
-          </button>`;
+          <button type="button" class="img-remove hover hover:shadow-none text-white text-medium ml-2" title="Click to remove image URL">&times;</button>`;
 
         editImg.append(imgInput);
       });
