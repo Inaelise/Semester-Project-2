@@ -1,5 +1,6 @@
 import { activeUser } from "./activeUser";
 import { onLogout } from "../ui/global/logout";
+import { activeNavLink } from "./activeNavLink";
 
 export function displayHeader() {
   const header = document.querySelector("header");
@@ -30,11 +31,11 @@ export function displayHeader() {
       </a>
       <nav class="fixed top-0 bg-main right-0 pt-16 pb-4 w-[170px] -translate-y-full transition-all duration-500 ease-in-out md:translate-y-0 md:transition-none md:static md:flex md:justify-center md:bg-transparent md:pt-0 md:pb-0">
         <ul class ="flex flex-col gap-4 items-center md:flex-row md:gap-24">
-          <li><a href="/" title="Go to home">Home</a></li><hr class="line"/>
-          <li><a href="/profile/" title="Go to profile">Profile</a></li><hr class="line"/>
+          <li class="hover hover:shadow-none"><a class="home-nav" href="/" title="Go to home">Home</a></li><hr class="line"/>
+          <li class="hover hover:shadow-none"><a class="profile-nav" href="/profile/" title="Go to profile">Profile</a></li><hr class="line"/>
           <li>
             <a href="/listing/create/" title="Go to create listing"
-              ><div class="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center"><span class="text-main font-black text-lg">+</span></div></a>
+              ><div class="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center hover hover:scale-110"><span class="text-main font-black text-lg">+</span></div></a>
           </li><hr class="line md:hidden"/>
         </ul>
         <div class="pt-4 text-center md:hidden">
@@ -70,5 +71,11 @@ export function displayHeader() {
       </div>
       `;
     }
+
+    const currentPath = window.location.pathname;
+    activeNavLink(currentPath, [
+      { selector: ".home-nav", path: "/" },
+      { selector: ".profile-nav", path: "/profile/" },
+    ]);
   }
 }
