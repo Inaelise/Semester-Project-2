@@ -80,19 +80,21 @@
                   <input
                     class="input-field w-[180px] border border-alt"
                     id="bid"
-                    name="bid"
+                    name="amount"
                   />
                   <i
                     class="fa-solid fa-coins text-[#00000075] absolute right-3"
                   ></i>
                 </div>
                 <button
-                  class="btn hover w-[180px]"
+                  class="btn hover w-[180px] disabled:hover:scale-100 disabled:hover:shadow-none disabled:drop-shadow-none disabled:bg-[#0000003d]"
+                  id="bid-button"
                   type="submit"
                   title="Click to place bid"
                 >
                   Place bid
                 </button>
+                <span class="flex items-center gap-2" id="login-message"></span>
               </form>
             </div>
           </div>
