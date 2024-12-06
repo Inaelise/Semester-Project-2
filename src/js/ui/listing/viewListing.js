@@ -138,10 +138,11 @@ export async function viewListing() {
 
     const highestBid = document.createElement("p");
     highestBid.classList.add("font-semibold", "text-medium");
-    highestBid.textContent =
+    const highestBidAmount =
       listing.bids.length > 0
         ? Math.max(...listing.bids.map((bid) => bid.amount))
         : 0;
+    highestBid.textContent = highestBidAmount;
     const highestBidText = document.createElement("p");
     highestBidText.classList.add("font-light", "text-[#ffffff9b]");
     highestBidText.textContent = "Highest bid";
@@ -163,6 +164,9 @@ export async function viewListing() {
     const description = document.createElement("p");
     description.classList.add("text-center", "py-6", "lg:text-left");
     description.textContent = listing.description;
+
+    const bidInput = document.getElementById("bid");
+    bidInput.placeholder = highestBidAmount + 10;
 
     const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
