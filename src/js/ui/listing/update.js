@@ -27,7 +27,7 @@ export async function onUpdateListing(e) {
     );
     setTimeout(() => {
       window.location.href = `/listing/?id=${listingId}`;
-    }, 1300);
+    }, 1000);
   } catch (error) {
     displayMessage("message", error.message);
   }

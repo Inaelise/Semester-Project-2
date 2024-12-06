@@ -30,7 +30,7 @@ export async function onCreate(e) {
     );
     setTimeout(() => {
       window.location.href = `/listing/?id=${newListing.id}`;
-    }, 1300);
+    }, 1000);
   } catch (error) {
     displayMessage("message", error.message);
   }

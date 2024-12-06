@@ -14,7 +14,7 @@ export async function onRegister(e) {
     form.reset();
     setTimeout(() => {
       window.location.href("/auth/login/");
-    }, 1300);
+    }, 1000);
   } catch (error) {
     displayMessage("message", error.message);
   }
