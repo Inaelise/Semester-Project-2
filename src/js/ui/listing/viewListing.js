@@ -167,7 +167,7 @@ export async function viewListing() {
     description.textContent = listing.description;
 
     const bidInput = document.getElementById("bid");
-    bidInput.placeholder = highestBidAmount + 10;
+    bidInput.placeholder = highestBidAmount + 5;
 
     const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
