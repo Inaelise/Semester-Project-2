@@ -48,7 +48,7 @@ export async function viewListings(limit = 9, page = 1, query = "", tag = "") {
       const itemContainer = document.createElement("div");
 
       const title = document.createElement("h2");
-      title.classList.add("font-medium", "pt-1", "pb-2");
+      title.classList.add("font-medium", "pt-1", "pb-2", "truncate");
       title.textContent = item.title || "No title available";
 
       const img = document.createElement("img");
