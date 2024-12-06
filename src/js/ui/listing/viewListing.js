@@ -98,8 +98,8 @@ export async function viewListing() {
     divOne.classList.add(
       "flex",
       "flex-row-reverse",
-      "justify-between",
-      "items-center"
+      "items-center",
+      "justify-end"
     );
 
     const seller = document.createElement("p");
@@ -109,6 +109,7 @@ export async function viewListing() {
     if (user === listing.seller.name) {
       const editLink = document.createElement("a");
       editLink.classList.add("z-10");
+      divOne.classList.add("justify-between");
       editLink.href = `/listing/edit/?id=${listingId}`;
       editLink.innerHTML = `<i class="hover fa-solid fa-pen-to-square fa-lg"></i>`;
       divOne.append(editLink);
