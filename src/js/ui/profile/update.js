@@ -10,12 +10,14 @@ export async function onUpdateProfile(e) {
   const formData = new FormData(updateForm);
   const data = Object.fromEntries(formData.entries());
 
-  data.media = [{ url: data.avatar, alt: "" }];
-  delete data.avatar;
+  data.avatar = { url: data.avatar, alt: "" };
 
   try {
     await updateProfile(user, data);
-    window.location.href = "/profile/";
+    displayMessage("message", "Profile updated successfully!", true);
+    setTimeout(() => {
+      window.location.href = "/profile/";
+    }, 1000);
   } catch (error) {
     displayMessage("message", error.message);
   }
