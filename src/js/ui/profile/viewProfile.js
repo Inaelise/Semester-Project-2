@@ -35,6 +35,7 @@ export async function viewProfile() {
       "w-[160px]",
       "h-[160px]",
       "rounded-full",
+      "object-cover",
       "drop-shadow-input",
       "lg:w-[218px]",
       "lg:h-[218px]"
