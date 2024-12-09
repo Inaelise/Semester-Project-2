@@ -12,7 +12,7 @@ function updateFormState() {
   if (!user) {
     bidBtn.disabled = true;
     loginMessage.classList.add("hover", "hover:shadow-none");
-    loginMessage.innerHTML = `<i class="fa-solid fa-circle-exclamation text-secondary"></i><a class="text-small hover:text-secondary" href="/auth/login/">Log in to make a bid</a>`;
+    loginMessage.innerHTML = `<i class="fa-solid fa-circle-exclamation text-secondary"></i><a class="text-small hover:text-secondary" href="/auth/login/" title="Go to login";>Log in to make a bid</a>`;
   } else {
     bidBtn.disabled = false;
     loginMessage.textContent = "";

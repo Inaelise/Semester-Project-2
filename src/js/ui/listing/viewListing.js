@@ -260,6 +260,7 @@ export async function viewListing() {
         "cursor-pointer"
       );
       noUserMessage.href = "/auth/login/";
+      noUserMessage.title = "Go to login";
       noUserMessage.textContent = "Log in to see bid history.";
       bidHistoryContainer.append(noUserMessage);
     }
