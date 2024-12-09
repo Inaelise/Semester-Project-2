@@ -28,7 +28,7 @@ export async function viewListing() {
 
     const breadcrumbDiv = document.createElement("div");
     breadcrumbDiv.classList.add(
-      "z-20",
+      "z-10",
       "place-self-start",
       "flex",
       "gap-2",
