@@ -4,6 +4,10 @@ import { activeUser } from "../../utilities/activeUser";
 import { createCountdown } from "../../utilities/countdown";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will display the data of a single listing on the page.
+ * @returns the listing container element.
+ */
 export async function viewListing() {
   const listingId = activeListingId();
   const user = activeUser();

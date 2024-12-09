@@ -4,6 +4,9 @@ import { getProfile } from "../api/profile/read";
 import { getListing } from "../api/listing/read";
 import { displayMessage } from "./displayMessage";
 
+/**
+ * This function will populate the edit listing form fields with the existing data.
+ */
 export async function populateListingEdit() {
   const listingId = activeListingId();
 
@@ -55,6 +58,9 @@ export async function populateListingEdit() {
   }
 }
 
+/**
+ * This function will populate the profile edit form fields with the existing data.
+ */
 export async function populateProfileEdit() {
   const user = activeUser();
 

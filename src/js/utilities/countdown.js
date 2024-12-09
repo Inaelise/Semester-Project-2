@@ -1,3 +1,10 @@
+/**
+ * Creates and displays a countdown timer until a specified end time.
+ * The countdown updates every second and is displayed in a specified container.
+ * "Auction ended" is displayed once the countdown reaches zero.
+ * @param {string} endTime - The end time for the countdown in a valid date format.
+ * @param {HTMLElement} endTimeContainer - The container element where the countdown will be displayed.
+ */
 export function createCountdown(endTime, endTimeContainer) {
   // Create elements for the countdown timer
   const countdownValue = document.createElement("p");

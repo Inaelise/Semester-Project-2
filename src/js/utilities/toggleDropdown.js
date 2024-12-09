@@ -1,3 +1,8 @@
+/**
+ * This function toggles the visibility of the mobile navigation dropdown menu when the hamburger button is clicked.
+ * It animates the hamburger icon and the navigation menu by adding/removing CSS classes that control the appearance and transitions.
+ * It also closes the menu if the user clicks outside of the navigation.
+ */
 export function toggleDropdown() {
   const navElements = document.querySelector("nav");
   const hamburger = document.querySelector(".hamburger");

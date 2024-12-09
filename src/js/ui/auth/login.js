@@ -1,6 +1,10 @@
 import { login } from "../../api/auth/login";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will handle the login form submission event.
+ * @param {Event} event logs in user on submit.
+ */
 export async function onLogin(e) {
   e.preventDefault();
 

@@ -3,6 +3,10 @@ import { activeUser } from "../../utilities/activeUser";
 import { displayMessage } from "../../utilities/displayMessage";
 import { closeModal, openModal } from "../../utilities/modal";
 
+/**
+ * This function will display the data of the user profile.
+ * @returns the profile container element.
+ */
 export async function viewProfile() {
   const user = activeUser();
   const loader = document.getElementById("loader");

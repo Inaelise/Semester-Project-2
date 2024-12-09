@@ -5,6 +5,10 @@ import { createCountdown } from "../../utilities/countdown";
 import { displayMessage } from "../../utilities/displayMessage";
 import { updatePagination } from "../../utilities/pagination";
 
+/**
+ * This function will display the list of listings on the home page.
+ * @returns the unordered list of listings.
+ */
 export async function viewListings(limit = 9, page = 1, query = "", tag = "") {
   const loader = document.getElementById("loader");
   const ul = document.getElementById("list-container");

@@ -1,6 +1,10 @@
 import { register } from "../../api/auth/register";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will handle the register form submission event.
+ * @param {Event} event registers user on submit.
+ */
 export async function onRegister(e) {
   e.preventDefault();
 

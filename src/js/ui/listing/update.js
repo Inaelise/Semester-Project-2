@@ -2,6 +2,11 @@ import { updateListing } from "../../api/listing/update";
 import { activeListingId } from "../../utilities/activeListingId";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will handle the form submission for updating a listing.
+ * If successful, it displays a success message and redirects to the listing page after a short delay.
+ * @param {Event} event updates listing on submit.
+ */
 export async function onUpdateListing(e) {
   e.preventDefault();
 

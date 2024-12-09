@@ -1,5 +1,16 @@
 import { viewListings } from "../ui/listing/viewListings";
 
+/**
+ * This updates the pagination controls for the list of listings, including "Prev" and "Next" buttons,
+ * based on the current page, limit, and optionally a query or tag filter.
+ * It dynamically enables or disables the buttons and handles navigation between pages.
+ * @param {number} limit The maximum number of listings per page.
+ * @param {number} page The current page number.
+ * @param {string} [query=""] Optional search query to filter listings.
+ * @param {string} [tag=""] Optional tag to filter listings.
+ * @example
+ * updatePagination(9, 2, "furniture", "vintage");
+ */
 export function updatePagination(limit, page, query = "", tag = "") {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";

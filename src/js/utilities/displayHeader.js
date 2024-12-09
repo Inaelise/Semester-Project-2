@@ -2,6 +2,10 @@ import { activeUser } from "./activeUser";
 import { onLogout } from "../ui/global/logout";
 import { activeNavLink } from "./activeNavLink";
 
+/**
+ * This dynamically updates the header content based on the user's authentication status.
+ * It configures the header with navigation links, branding, and logout functionality for logged-in users, or login and signup options for guests.
+ */
 export function displayHeader() {
   const header = document.querySelector("header");
   header.classList.add(

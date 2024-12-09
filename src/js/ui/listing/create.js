@@ -1,6 +1,11 @@
 import { createListing } from "../../api/listing/create";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will handle the form submission for creating a listing.
+ * If successful, it displays a success message and redirects to the listing page after a short delay.
+ * @param {Event} event creates listing on submit.
+ */
 export async function onCreate(e) {
   e.preventDefault();
 

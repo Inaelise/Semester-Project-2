@@ -2,6 +2,10 @@ import { updateProfile } from "../../api/profile/update";
 import { activeUser } from "../../utilities/activeUser";
 import { displayMessage } from "../../utilities/displayMessage";
 
+/**
+ * This function will handle the form submission for updating a profile.
+ * @param {Event} event updates profile on submit.
+ */
 export async function onUpdateProfile(e) {
   e.preventDefault();
   const user = activeUser();
