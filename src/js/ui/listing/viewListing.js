@@ -176,6 +176,7 @@ export async function viewListing() {
     const bidInput = document.getElementById("bid");
     bidInput.placeholder = highestBidAmount + 5;
 
+    //Show bid history if user is logged in
     const bidSection = document.getElementById("bid-history");
     const bidHistoryContainer = document.createElement("div");
     bidHistoryContainer.classList.add(
@@ -198,57 +199,70 @@ export async function viewListing() {
     );
     bidsTitle.textContent = "Bid history";
     bidHistoryContainer.append(bidsTitle);
-
-    if (listing.bids.length > 0) {
-      const sortedBids = [...listing.bids].sort((a, b) => b.amount - a.amount);
-      sortedBids.forEach((bid) => {
-        const bidContainer = document.createElement("div");
-        bidContainer.classList.add("flex", "w-full", "justify-between", "py-4");
-
-        const bidderInfo = document.createElement("div");
-        bidderInfo.classList.add("flex", "gap-2", "items-center");
-        const bidderAvatar = document.createElement("img");
-        bidderAvatar.classList.add(
-          "w-[43px]",
-          "h-[43px]",
-          "object-cover",
-          "rounded-full"
+    if (user) {
+      if (listing.bids.length > 0) {
+        const sortedBids = [...listing.bids].sort(
+          (a, b) => b.amount - a.amount
         );
-        bidderAvatar.src = bid.bidder.avatar.url;
+        sortedBids.forEach((bid) => {
+          const bidContainer = document.createElement("div");
+          bidContainer.classList.add(
+            "flex",
+            "w-full",
+            "justify-between",
+            "py-4"
+          );
 
-        const bidderName = document.createElement("p");
-        bidderName.classList.add("font-medium", "text-small");
-        bidderName.textContent = bid.bidder.name;
+          const bidderInfo = document.createElement("div");
+          bidderInfo.classList.add("flex", "gap-2", "items-center");
+          const bidderAvatar = document.createElement("img");
+          bidderAvatar.classList.add(
+            "w-[43px]",
+            "h-[43px]",
+            "object-cover",
+            "rounded-full"
+          );
+          bidderAvatar.src = bid.bidder.avatar.url;
 
-        bidderInfo.append(bidderAvatar, bidderName);
+          const bidderName = document.createElement("p");
+          bidderName.classList.add("font-medium", "text-small");
+          bidderName.textContent = bid.bidder.name;
 
-        const bidAmountDiv = document.createElement("div");
-        bidAmountDiv.classList.add("flex", "gap-2", "items-center");
-        const bidAmount = document.createElement("p");
-        bidAmount.classList.add("font-semibold");
-        bidAmount.textContent = bid.amount;
+          bidderInfo.append(bidderAvatar, bidderName);
 
-        const creditIcon = document.createElement("span");
-        creditIcon.innerHTML = `<i class="fa-solid fa-coins"></i>`;
+          const bidAmountDiv = document.createElement("div");
+          bidAmountDiv.classList.add("flex", "gap-2", "items-center");
+          const bidAmount = document.createElement("p");
+          bidAmount.classList.add("font-semibold");
+          bidAmount.textContent = bid.amount;
 
-        bidAmountDiv.append(bidAmount, creditIcon);
+          const creditIcon = document.createElement("span");
+          creditIcon.innerHTML = `<i class="fa-solid fa-coins"></i>`;
 
-        bidContainer.append(bidderInfo, bidAmountDiv);
-        bidHistoryContainer.append(bidContainer);
-      });
+          bidAmountDiv.append(bidAmount, creditIcon);
+
+          bidContainer.append(bidderInfo, bidAmountDiv);
+          bidHistoryContainer.append(bidContainer);
+        });
+      } else {
+        const noBids = document.createElement("p");
+        noBids.classList.add("pt-6");
+        noBids.textContent = "No bids have been made yet.";
+        bidHistoryContainer.append(noBids);
+      }
     } else {
-      const noBids = document.createElement("p");
-      noBids.textContent = "No bids have been made yet";
-      bidHistoryContainer.append(noBids);
+      const noUserMessage = document.createElement("p");
+      noUserMessage.classList.add("pt-6");
+      noUserMessage.textContent = "Log in to see bid history.";
+      bidHistoryContainer.append(noUserMessage);
     }
+    bidSection.append(bidHistoryContainer);
 
     divThree.append(endTimeContainer);
     divTwo.append(highestBidContainer);
     listingInfo.insertBefore(divOne, form);
     listingInfo.insertBefore(divContainer, form);
     listingInfo.insertBefore(description, form);
-
-    bidSection.append(bidHistoryContainer);
 
     return listingContainer, bidSection;
   } catch (error) {
