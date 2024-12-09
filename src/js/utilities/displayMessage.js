@@ -7,7 +7,6 @@
  */
 export function displayMessage(containerId, message, isSuccess = false) {
   const container = document.getElementById(containerId);
-  container.classList.add("text-small");
   if (container) {
     container.textContent = message;
     container.style.color = isSuccess ? "green" : "red";
