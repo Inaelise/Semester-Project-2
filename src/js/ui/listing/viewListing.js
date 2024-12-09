@@ -251,8 +251,15 @@ export async function viewListing() {
         bidHistoryContainer.append(noBids);
       }
     } else {
-      const noUserMessage = document.createElement("p");
-      noUserMessage.classList.add("pt-6");
+      const noUserMessage = document.createElement("a");
+      noUserMessage.classList.add(
+        "pt-6",
+        "hover",
+        "hover:shadow-none",
+        "hover:text-secondary",
+        "cursor-pointer"
+      );
+      noUserMessage.href = "/auth/login/";
       noUserMessage.textContent = "Log in to see bid history.";
       bidHistoryContainer.append(noUserMessage);
     }
