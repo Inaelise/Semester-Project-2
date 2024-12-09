@@ -69,8 +69,11 @@ export async function viewListing() {
             "h-[59px]",
             "object-cover",
             "sm:w-[86px]",
-            "sm:h-[79px]"
+            "sm:h-[79px]",
+            "hover",
+            "cursor-pointer"
           );
+          thumbnail.title = "Click to view";
           thumbnail.src = mediaItem.url;
           thumbnail.alt = mediaItem.alt || "Thumbnail image";
 
