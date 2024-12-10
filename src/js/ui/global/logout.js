@@ -1,3 +1,4 @@
+import { openConfirmModal } from "../../utilities/confirmModal";
 import { logout } from "../auth/logout";
 
 /**
@@ -11,8 +12,11 @@ export function onLogout() {
   const logoutBtns = document.querySelectorAll(".logout-btn");
 
   logoutBtns.forEach((btns) => {
-    btns.addEventListener("click", () => {
-      if (window.confirm("Are you sure you want to logout?") === true) {
+    btns.addEventListener("click", async () => {
+      const confirmed = await openConfirmModal(
+        "Are you sure you want to logout?"
+      );
+      if (confirmed) {
         logout();
         window.location.href = "/";
       }
