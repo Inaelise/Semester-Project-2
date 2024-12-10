@@ -37,6 +37,36 @@
     <header></header>
     <main class="relative">
       <div
+        class="hidden fixed top-[100px] w-[300px] left-1/2 -translate-x-1/2 bg-white z-30 p-2 transition-all duration-300 ease-in-out drop-shadow-input"
+        id="confirm-modal"
+      >
+        <div class="text-center border border-alt p-2">
+          <span
+            class="absolute right-3 top-1 text-largeMed cursor-pointer"
+            id="close-confirm-modal"
+            title="Click to close"
+            >&times;</span
+          >
+          <p id="modal-body"></p>
+          <div class="modal-buttons flex justify-center gap-4 pt-4">
+            <button
+              id="yes"
+              title="Click to confirm"
+              class="hover bg-green-500 text-white w-[50px] py-1 rounded-xl text-small"
+            >
+              Yes
+            </button>
+            <button
+              id="no"
+              title="Click to deny"
+              class="hover bg-red text-white w-[50px] py-1 rounded-xl text-small"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
         class="bg-home absolute top-0 bg-contain left-0 bg-no-repeat w-full h-[90vh]"
       >
         <h1
