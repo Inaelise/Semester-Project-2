@@ -53,4 +53,8 @@
   .filter-name {
     @apply font-medium text-small;
   }
+
+  .active-filter {
+    @apply border-2 border-main;
+  }
 }
