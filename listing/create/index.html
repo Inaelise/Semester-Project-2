@@ -37,6 +37,37 @@
     <header></header>
 
     <main class="relative bg-profile bg-no-repeat bg-cover min-h-[90vh]">
+      <!-- Confirm modal hidden initially -->
+      <div
+        class="hidden fixed top-[100px] w-[300px] left-1/2 -translate-x-1/2 bg-white z-30 p-2 transition-all duration-300 ease-in-out drop-shadow-input"
+        id="confirm-modal"
+      >
+        <div class="text-center border border-alt p-2">
+          <span
+            class="absolute right-3 top-1 text-largeMed cursor-pointer"
+            id="close-confirm-modal"
+            title="Click to close"
+            >&times;</span
+          >
+          <p id="modal-body"></p>
+          <div class="modal-buttons flex justify-center gap-4 pt-4">
+            <button
+              id="yes"
+              title="Click to confirm"
+              class="hover bg-green-500 text-white w-[50px] py-1 rounded-xl text-small"
+            >
+              Yes
+            </button>
+            <button
+              id="no"
+              title="Click to deny"
+              class="hover bg-red text-white w-[50px] py-1 rounded-xl text-small"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
       <h1
         class="font-medium text-[28px] text-center pt-8 pb-4 text-white md:text-large md:pb-12"
       >

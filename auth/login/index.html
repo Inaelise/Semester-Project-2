@@ -40,6 +40,37 @@
 
     <main class="flex justify-center text-center md:pt-[80px]">
       <section class="text-white md:text-black md:bg-alt md:w-[350px] md:pb-12">
+        <!-- Confirm modal hidden initially -->
+        <div
+          class="hidden fixed top-[100px] w-[300px] left-1/2 -translate-x-1/2 bg-white z-30 p-2 transition-all duration-300 ease-in-out drop-shadow-input"
+          id="confirm-modal"
+        >
+          <div class="text-center border border-alt p-2">
+            <span
+              class="absolute right-3 top-1 text-largeMed cursor-pointer"
+              id="close-confirm-modal"
+              title="Click to close"
+              >&times;</span
+            >
+            <p id="modal-body"></p>
+            <div class="modal-buttons flex justify-center gap-4 pt-4">
+              <button
+                id="yes"
+                title="Click to confirm"
+                class="hover bg-green-500 text-white w-[50px] py-1 rounded-xl text-small"
+              >
+                Yes
+              </button>
+              <button
+                id="no"
+                title="Click to deny"
+                class="hover bg-red text-white w-[50px] py-1 rounded-xl text-small"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
         <h1 class="font-medium py-8 text-large">Log in</h1>
         <div class="pb-10 md:hidden">
           <h2 class="text-small font-light">Don't have an account?</h2>
