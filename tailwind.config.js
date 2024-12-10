@@ -7,6 +7,7 @@ export default {
         main: "#41354D",
         secondary: "#5B0088",
         alt: "#E0E0E0",
+        red: "#70191A",
       },
       fontFamily: {
         header: ["Inter", "sans-serif"],
