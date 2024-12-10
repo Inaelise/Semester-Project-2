@@ -44,7 +44,7 @@ export async function viewListing() {
       "sm:w-[465px]",
       "sm:h-[350px]"
     );
-    // Make the actual gallery
+
     if (listing.media.length > 0) {
       const firstImg = listing.media[0];
       mainImg.src = firstImg.url;
@@ -52,7 +52,7 @@ export async function viewListing() {
       imgContainer.append(mainImg);
     } else {
       mainImg.src = "/images/default-img.png";
-      mainImg.src = "Default image";
+      mainImg.alt = "Default image";
       imgContainer.append(mainImg);
     }
     gallery.append(title, imgContainer);
