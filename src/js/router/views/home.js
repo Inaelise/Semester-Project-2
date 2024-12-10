@@ -24,6 +24,9 @@ filterImgTag.forEach((img) => {
   img.addEventListener("click", (e) => {
     const tag = e.target.getAttribute("data-tag");
 
+    //Removes style for all filters
+    filterImgTag.forEach((filter) => filter.classList.remove("active-filter"));
+
     //Reset filter if same tag is clicked
     if (activeTag === tag) {
       activeTag = "";
@@ -32,6 +35,9 @@ filterImgTag.forEach((img) => {
       //Apply tag filter
       activeTag = tag;
       viewListings(9, 1, tag);
+
+      //Adds style to active filter.
+      e.target.classList.add("active-filter");
     }
   });
 });
