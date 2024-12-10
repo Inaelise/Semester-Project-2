@@ -26,32 +26,6 @@ export async function viewListing() {
 
     const listingContainer = document.getElementById("listing-container");
 
-    const breadcrumbDiv = document.createElement("div");
-    breadcrumbDiv.classList.add(
-      "z-10",
-      "place-self-start",
-      "flex",
-      "gap-2",
-      "pb-6",
-      "text-small"
-    );
-    const homeLink = document.createElement("a");
-    /* homeLink.classList.add(); */
-    homeLink.href = "/";
-    homeLink.title = "Back to home";
-    homeLink.classList.add("hover:underline");
-    homeLink.textContent = "Home";
-
-    const crumb = document.createElement("span");
-    crumb.innerHTML = "<i class='fa-solid fa-chevron-right fa-xs'></i>";
-
-    const currentCrumb = document.createElement("p");
-    currentCrumb.classList.add("text-secondary");
-    currentCrumb.ariaCurrent = "page";
-    currentCrumb.textContent = "Listing";
-
-    breadcrumbDiv.append(homeLink, crumb, currentCrumb);
-
     const title = document.createElement("h2");
     title.classList.add("place-self-start", "font-medium", "text-largeMed");
     title.textContent = listing.title;
@@ -81,7 +55,7 @@ export async function viewListing() {
       mainImg.src = "Default image";
       imgContainer.append(mainImg);
     }
-    gallery.append(breadcrumbDiv, title, imgContainer);
+    gallery.append(title, imgContainer);
 
     const thumbnailsContainer = document.createElement("div");
     thumbnailsContainer.classList.add("flex", "flex-row", "gap-[12px]");
