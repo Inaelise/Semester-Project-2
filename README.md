@@ -1,6 +1,6 @@
 # Semester Project 2 - Swift Auction
 
-- Add image here
+![image](/public/images/website-screenshot.png)
 
 ## Description
 
