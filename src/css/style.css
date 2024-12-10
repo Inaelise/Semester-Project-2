@@ -18,6 +18,10 @@
     @apply rounded-md py-2 px-3 hover:shadow-spread;
   }
 
+  .unordered-list {
+    @apply flex flex-col gap-4 items-center md:flex-row;
+  }
+
   .logout-btn {
     @apply hover border rounded-full px-4 py-1 hover:border-2 transition-all duration-200 ease-in-out;
   }
