@@ -1,5 +1,6 @@
 import { deleteListing } from "../../api/listing/delete";
 import { activeListingId } from "../../utilities/activeListingId";
+import { openConfirmModal } from "../../utilities/confirmModal";
 import { displayMessage } from "../../utilities/displayMessage";
 
 /**
@@ -12,7 +13,7 @@ export async function onDelete(e) {
 
   const listingId = activeListingId();
 
-  const confirmDelete = confirm(
+  const confirmDelete = await openConfirmModal(
     "Are you sure you want to delete this listing?"
   );
   if (!confirmDelete) {
