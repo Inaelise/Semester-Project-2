@@ -16,23 +16,6 @@ export default defineConfig({
         editListing: resolve(__dirname, "./listing/edit/index.html"),
         createListing: resolve(__dirname, "./listing/create/index.html"),
       },
-      output: {
-        manualChunks: {
-          utilities: [
-            "./src/js/utilities/displayHeader.js",
-            "./src/js/utilities/toggleDropdown.js",
-          ],
-          views: [
-            "./src/js/router/views/home.js",
-            "./src/js/router/views/login.js",
-            "./src/js/router/views/register.js",
-            "./src/js/router/views/listing.js",
-            "./src/js/router/views/listingEdit.js",
-            "./src/js/router/views/listingCreate.js",
-            "./src/js/router/views/profile.js",
-          ],
-        },
-      },
     },
   },
 });
