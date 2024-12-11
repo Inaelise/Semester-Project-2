@@ -1,7 +1,7 @@
 import "./css/style.css";
 import { displayHeader } from "../src/js/utilities/displayHeader";
 import { toggleDropdown } from "../src/js/utilities/toggleDropdown";
-import router from "./js/router";
+import router from "../src/js/router/index";
 
 displayHeader();
 toggleDropdown();
