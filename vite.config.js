@@ -17,13 +17,6 @@ export default defineConfig({
         editListing: resolve(__dirname, "./listing/edit/index.html"),
         createListing: resolve(__dirname, "./listing/create/index.html"),
       },
-      output: [
-        {
-          format: "es",
-          dir: "dist",
-          preserveModulesRoot: "src",
-        },
-      ],
     },
   },
 });
