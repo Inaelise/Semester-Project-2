@@ -8,6 +8,7 @@ export default defineConfig({
     target: "esnext",
     rollupOptions: {
       input: {
+        js: "src/app.js",
         main: resolve(__dirname, "./index.html"),
         login: resolve(__dirname, "./auth/login/index.html"),
         register: resolve(__dirname, "./auth/register/index.html"),
@@ -16,6 +17,13 @@ export default defineConfig({
         editListing: resolve(__dirname, "./listing/edit/index.html"),
         createListing: resolve(__dirname, "./listing/create/index.html"),
       },
+      output: [
+        {
+          format: "es",
+          dir: "dist",
+          preserveModulesRoot: "src",
+        },
+      ],
     },
   },
 });
