@@ -20,7 +20,7 @@ export async function register({ name, email, password }) {
   const response = await fetch(API_AUTH_REGISTER, {
     headers: headers("application/json"),
     method: "post",
-    body: JSON.stringify({ name, email, password, credits: 1000 }),
+    body: JSON.stringify({ name, email, password }),
   });
 
   const result = await response.json();
