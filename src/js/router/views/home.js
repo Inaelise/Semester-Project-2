@@ -34,7 +34,7 @@ filterImgTag.forEach((img) => {
     } else {
       //Apply tag filter
       activeTag = tag;
-      viewListings(9, 1, tag);
+      viewListings(9, 1, "", tag);
 
       //Adds style to active filter.
       e.target.classList.add("active-filter");
