@@ -15,9 +15,8 @@ export async function onRegister(e) {
   try {
     await register(data);
     displayMessage("message", "Registered successfully! Redirecting..", true);
-    form.reset();
     setTimeout(() => {
-      window.location.href("/auth/login/");
+      window.location.href = "/auth/login/";
     }, 1000);
   } catch (error) {
     displayMessage("message", error.message);
