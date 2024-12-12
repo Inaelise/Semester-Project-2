@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         js: "src/app.js",
+        router: "src/js/router/index.js",
         main: resolve(__dirname, "./index.html"),
         login: resolve(__dirname, "./auth/login/index.html"),
         register: resolve(__dirname, "./auth/register/index.html"),
