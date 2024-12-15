@@ -43,7 +43,7 @@
   }
 
   .input-field {
-    @apply text-center rounded-xl py-2 px-4 w-[240px] drop-shadow-input md:m-auto;
+    @apply text-center text-black rounded-xl py-2 px-4 w-[240px] drop-shadow-input md:m-auto;
   }
 
   .filter-img {
