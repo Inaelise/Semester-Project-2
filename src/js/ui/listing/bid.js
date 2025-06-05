@@ -20,6 +20,15 @@ export async function onBid(e) {
 
   data.amount = parseInt(data.amount);
 
+  // Validation
+  if (isNaN(data.amount) || data.amount <= 0) {
+    displayMessage(
+      "message",
+      "Please enter a valid bid amount greater than zero."
+    );
+    return;
+  }
+
   try {
     await makeBid(listingId, data);
     displayMessage("message", "Bid made successfully!", true);
